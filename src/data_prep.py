@@ -18,7 +18,7 @@ def validate_dataset(
     missing_columns = sorted(required_columns.difference(df.columns))
     if missing_columns:
         raise ValueError(f"Missing required columns: {missing_columns}")
-    years = sorted(df["year"].dropna().unique().tolist())
+    years = sorted(df["observation_year"].dropna().unique().tolist())
     if years != [2022]:
         raise ValueError(f"Expected only year 2022, got {years}")
 
@@ -39,7 +39,7 @@ def fill_missing_with_feature_medians(values: pd.DataFrame) -> pd.DataFrame:
 
 def log_transform_service_employment(values: pd.DataFrame) -> pd.DataFrame:
     transformed = values.copy()
-    feature = "NV.SRV.EMPL.KD"
+    feature = "services_value_added_per_worker_constant_2015_usd"
     if feature not in transformed.columns:
         return transformed
     min_value = transformed[feature].min()
