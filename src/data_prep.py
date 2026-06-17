@@ -9,12 +9,9 @@ from sklearn.preprocessing import StandardScaler
 
 def validate_dataset(
     df: pd.DataFrame,
-    *,
-    id_columns: Sequence[str],
-    clustering_features: Sequence[str],
-    factor_features: Sequence[str],
+    config,
 ) -> None:
-    required_columns = {*id_columns, *clustering_features, *factor_features}
+    required_columns = {*config.id_columns, *config.clustering_features, *config.factor_features}
     missing_columns = sorted(required_columns.difference(df.columns))
     if missing_columns:
         raise ValueError(f"Missing required columns: {missing_columns}")

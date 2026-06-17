@@ -19,6 +19,10 @@ def save_cluster_profiles(
         config.out_dir / "cluster_profiles.csv"
     )
 
+def save_income_crosstab(assignments: pd.DataFrame, config) -> None:
+    counts = pd.crosstab(assignments["cluster"], assignments["world_bank_income_group"])
+    counts.to_csv(config.out_dir / "cluster_income_crosstab.csv")
+
 def save_all_cluster_outputs(
     df: pd.DataFrame,
     raw_features: pd.DataFrame,
@@ -26,4 +30,6 @@ def save_all_cluster_outputs(
     labels: np.ndarray,
     config=CONFIG
 ) -> None:
-    save_cluster_assignments(df, labels, config)
+    assignments = save_cluster_assignments(df, labels, config)
+    save_cluster_profiles(raw_features, labels, config)
+    save_income_crosstab(assignments, config)

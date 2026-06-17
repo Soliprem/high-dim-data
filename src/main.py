@@ -1,5 +1,5 @@
 import pandas as pd
-from analysis import assign_kmeans_clusters
+from analysis import assign_kmeans_clusters, fit_factor_model
 from config import CONFIG
 from data_prep import validate_dataset, prepare_feature_matrix
 from sklearn.metrics import silhouette_score
@@ -12,9 +12,7 @@ def main(config: Config = CONFIG) -> None:
     df = pd.read_csv(config.data_path)
     validate_dataset(
         df,
-        id_columns=config.id_columns,
-        clustering_features=config.clustering_features,
-        factor_features=config.factor_features,
+        config,
     )
     raw_cluster_features, x_cluster = prepare_feature_matrix(
         df,
@@ -22,17 +20,19 @@ def main(config: Config = CONFIG) -> None:
     )
     cluster_labels = assign_kmeans_clusters(
         x_cluster,
-        n_clusters=config.n_clusters,
-        seed=config.seed,
-        kmeans_restarts=config.kmeans_restarts,
+        config,
     )
     cluster_score = silhouette_score(x_cluster, cluster_labels)
     save_all_cluster_outputs(df, raw_cluster_features, x_cluster, cluster_labels, config)
+
+    _, x_factor = prepare_feature_matrix(df, config.factor_features)
+    fit_factor_model(x_factor, config)
 
     print(f"Rows: {len(df)}")
     print(f"Clustering features: {raw_cluster_features.shape[1]}")
     print(f"Clusters: {sorted(set(cluster_labels.tolist()))}")
     print(f"silhouette_score: {cluster_score}")
+    print(f"factor features: {x_factor.shape[1]}")
 
 
 if __name__ == "__main__":
