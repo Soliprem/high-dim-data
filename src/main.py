@@ -26,13 +26,15 @@ def main(config: Config = CONFIG) -> None:
     save_all_cluster_outputs(df, raw_cluster_features, x_cluster, cluster_labels, config)
 
     _, x_factor = prepare_feature_matrix(df, config.factor_features)
-    fit_factor_model(x_factor, config)
+    factor_loadings = fit_factor_model(x_factor, config)
+    factor_loadings = fit_factor_model(x_factor, config)
 
     print(f"Rows: {len(df)}")
     print(f"Clustering features: {raw_cluster_features.shape[1]}")
     print(f"Clusters: {sorted(set(cluster_labels.tolist()))}")
     print(f"silhouette_score: {cluster_score}")
     print(f"factor features: {x_factor.shape[1]}")
+    print(f"Factor loadings: {factor_loadings}")
 
 
 if __name__ == "__main__":

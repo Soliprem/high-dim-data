@@ -41,4 +41,5 @@ CONFIG = Config[Path, tuple[str, ...]](
         "world_bank_income_group",
         "observation_year",
     ),
+    rotation="varimax"
 )

@@ -24,7 +24,7 @@ def fit_factor_model(
 ):
     model = FactorAnalysis(
         n_components=config.n_factors,
-        rotation=None,
+        rotation=config.rotation,
         random_state=config.seed,
     )
     model.fit(x_scaled)

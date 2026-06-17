@@ -3,11 +3,12 @@ from __future__ import annotations
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, Literal
 
 
 PathT = TypeVar("PathT", bound=Path)
 FeaturesT = TypeVar("FeaturesT", bound=Sequence[str])
+Rotation = Literal["varimax", "quartimax"] | None
 
 
 @dataclass(frozen=True)
@@ -23,3 +24,5 @@ class Config(Generic[PathT, FeaturesT]):
     clustering_features: FeaturesT
     factor_features: FeaturesT
     id_columns: FeaturesT
+
+    rotation: Rotation
