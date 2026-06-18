@@ -248,16 +248,12 @@ def factor_structure_metrics(
         secondary_loadings = np.zeros_like(primary_loadings)
 
     empirical_covariance = np.cov(x_scaled, rowvar=False, bias=True)
-    model_covariance = (
-        result.loadings @ result.loadings.T + np.diag(result.uniqueness)
-    )
+    model_covariance = result.loadings @ result.loadings.T + np.diag(result.uniqueness)
     residual = empirical_covariance - model_covariance
 
     return {
         "mean_primary_abs_loading": float(primary_loadings.mean()),
-        "mean_cross_loading_gap": float(
-            (primary_loadings - secondary_loadings).mean()
-        ),
+        "mean_cross_loading_gap": float((primary_loadings - secondary_loadings).mean()),
         "simple_feature_share": float(
             ((primary_loadings >= 0.40) & (secondary_loadings <= 0.30)).mean()
         ),
@@ -327,9 +323,7 @@ def build_factor_model_comparison(
 
     for cluster in sorted(np.unique(cluster_labels).tolist()):
         cluster_mask = cluster_labels == cluster
-        cluster_x_scaled = standardize_features(
-            global_factor_values.loc[cluster_mask]
-        )
+        cluster_x_scaled = standardize_features(global_factor_values.loc[cluster_mask])
         cluster_result = fit_factor_model(cluster_x_scaled, config)
 
         comparison_rows.append(

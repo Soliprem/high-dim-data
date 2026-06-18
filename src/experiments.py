@@ -10,6 +10,7 @@ from analysis import assign_kmeans_clusters, fit_factor_model
 from data_prep import prepare_feature_matrix
 from datatypes import Config, FactorModelResult
 from helpers import build_factor_model_comparison, factor_structure_metrics
+from model_selection import likelihood_metrics
 
 
 METRIC_COLUMNS = (
@@ -70,6 +71,18 @@ def summarize_config(
     for metric in METRIC_COLUMNS:
         summary[f"global_{metric}"] = float(global_metrics[metric])
 
+    global_likelihood = likelihood_metrics(
+        x_factor,
+        global_result,
+        n_features=x_factor.shape[1],
+        n_factors=config.n_factors,
+        eigenvalue_floor=config.likelihood_eigenvalue_floor,
+    )
+
+    for key, value in global_likelihood.items():
+        if isinstance(value, (int, float, np.integer, np.floating, bool)):
+            summary[f"global_{key}"] = value
+
     if config.n_factors > max_cluster_factors:
         summary["clustered_status"] = "skipped_sample_limit"
         summary["clustered_reason"] = (
@@ -79,7 +92,84 @@ def summarize_config(
         for metric in METRIC_COLUMNS:
             summary[f"clustered_{metric}"] = np.nan
             summary[f"clustered_minus_global_{metric}"] = np.nan
+
+        likelihood_nan_columns = (
+            "clustered_n_parameters",
+            "clustered_exact_total_log_likelihood",
+            "clustered_regularized_total_log_likelihood",
+            "clustered_regularized_aic",
+            "clustered_regularized_bic",
+            "clustered_unstable_models",
+            "clustered_minus_global_regularized_bic",
+            "clustered_minus_global_regularized_aic",
+            "clustered_minus_global_regularized_total_log_likelihood",
+        )
+
+        for column in likelihood_nan_columns:
+            summary[column] = np.nan
         return summary
+
+    clustered_regularized_log_likelihood = 0.0
+    clustered_exact_log_likelihood = 0.0
+    clustered_parameters = 0
+    clustered_unstable_models = 0
+    for cluster in sorted(np.unique(cluster_labels)):
+        cluster_mask = cluster_labels == cluster
+
+        cluster_result = fit_factor_model(
+            x_factor[cluster_mask],
+            config,
+        )
+
+        cluster_likelihood = likelihood_metrics(
+            x_factor[cluster_mask],
+            cluster_result,
+            n_features=x_factor.shape[1],
+            n_factors=config.n_factors,
+            eigenvalue_floor=config.likelihood_eigenvalue_floor,
+        )
+
+        clustered_regularized_log_likelihood += float(
+            cluster_likelihood["regularized_total_log_likelihood"]
+        )
+        clustered_exact_log_likelihood += float(
+            cluster_likelihood["exact_total_log_likelihood"]
+        )
+        clustered_parameters += int(cluster_likelihood["n_parameters"])
+
+        if int(cluster_likelihood["uniquenesses_below_floor"]) > 0:
+            clustered_unstable_models += 1
+
+    n_observations = len(df)
+
+    clustered_regularized_aic = (
+        2 * clustered_parameters - 2 * clustered_regularized_log_likelihood
+    )
+
+    clustered_regularized_bic = (
+        clustered_parameters * np.log(n_observations)
+        - 2 * clustered_regularized_log_likelihood
+    )
+
+    summary["clustered_n_parameters"] = clustered_parameters
+    summary["clustered_exact_total_log_likelihood"] = clustered_exact_log_likelihood
+    summary["clustered_regularized_total_log_likelihood"] = (
+        clustered_regularized_log_likelihood
+    )
+    summary["clustered_regularized_aic"] = clustered_regularized_aic
+    summary["clustered_regularized_bic"] = clustered_regularized_bic
+    summary["clustered_unstable_models"] = clustered_unstable_models
+
+    summary["clustered_minus_global_regularized_bic"] = (
+        clustered_regularized_bic - float(global_likelihood["regularized_bic"])
+    )
+    summary["clustered_minus_global_regularized_aic"] = (
+        clustered_regularized_aic - float(global_likelihood["regularized_aic"])
+    )
+    summary["clustered_minus_global_regularized_total_log_likelihood"] = (
+        clustered_regularized_log_likelihood
+        - float(global_likelihood["regularized_total_log_likelihood"])
+    )
 
     comparison, _ = build_factor_model_comparison(
         df,
@@ -99,9 +189,7 @@ def summarize_config(
         global_value = float(global_metrics[metric])
         clustered_value = float(clustered_row[metric])
         summary[f"clustered_{metric}"] = clustered_value
-        summary[f"clustered_minus_global_{metric}"] = (
-            clustered_value - global_value
-        )
+        summary[f"clustered_minus_global_{metric}"] = clustered_value - global_value
 
     return summary
 

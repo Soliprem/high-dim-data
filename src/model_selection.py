@@ -1,4 +1,7 @@
 from __future__ import annotations
+from typing import Any
+
+from datatypes import FactorModelResult
 
 from pathlib import Path
 from collections.abc import Sequence
@@ -26,9 +29,7 @@ def remove_constant_features(
     )
     retained_columns = values.columns[~numerically_constant]
     dropped_columns = [
-        str(column)
-        for column in values.columns
-        if column not in retained_columns
+        str(column) for column in values.columns if column not in retained_columns
     ]
     return values.loc[:, retained_columns], dropped_columns
 
@@ -43,17 +44,13 @@ def parallel_analysis(
     rng = np.random.default_rng(seed)
     n_rows, n_features = x_scaled.shape
 
-    observed = np.linalg.eigvalsh(
-        np.corrcoef(x_scaled, rowvar=False)
-    )[::-1]
+    observed = np.linalg.eigvalsh(np.corrcoef(x_scaled, rowvar=False))[::-1]
     random_eigenvalues = np.empty((iterations, n_features))
 
     for iteration in range(iterations):
         permuted = np.empty_like(x_scaled)
         for feature_index in range(n_features):
-            permuted[:, feature_index] = rng.permutation(
-                x_scaled[:, feature_index]
-            )
+            permuted[:, feature_index] = rng.permutation(x_scaled[:, feature_index])
         random_eigenvalues[iteration] = np.linalg.eigvalsh(
             np.corrcoef(permuted, rowvar=False)
         )[::-1]
@@ -66,8 +63,7 @@ def parallel_analysis(
     max_estimable_factors = min(n_features, n_rows - 1)
     retain = np.zeros(n_features, dtype=bool)
     retain[:max_estimable_factors] = (
-        observed[:max_estimable_factors]
-        > thresholds[:max_estimable_factors]
+        observed[:max_estimable_factors] > thresholds[:max_estimable_factors]
     )
     suggested_factors = int(retain.sum())
     return observed, thresholds, suggested_factors
@@ -150,7 +146,10 @@ def run_parallel_analysis_diagnostics(
                 "observed_eigenvalue": observed,
                 "permutation_threshold": thresholds,
                 "retain": (
-                    (np.arange(len(observed)) < min(x_scaled.shape[1], x_scaled.shape[0] - 1))
+                    (
+                        np.arange(len(observed))
+                        < min(x_scaled.shape[1], x_scaled.shape[0] - 1)
+                    )
                     & (observed > thresholds)
                 ),
             }
@@ -162,8 +161,7 @@ def run_parallel_analysis_diagnostics(
             output_path=output_dir / f"{scope}.png",
         )
         dropped_rows.extend(
-            {"scope": scope, "feature": feature}
-            for feature in dropped_features
+            {"scope": scope, "feature": feature} for feature in dropped_features
         )
 
     summary = pd.DataFrame(rows)
@@ -223,8 +221,7 @@ def run_parallel_analysis_sweep(
                 "observed_eigenvalue": observed,
                 "permutation_threshold": threshold,
                 "retain": (
-                    rank
-                    <= min(global_scaled.shape[1], global_scaled.shape[0] - 1)
+                    rank <= min(global_scaled.shape[1], global_scaled.shape[0] - 1)
                     and observed > threshold
                 ),
             }
@@ -242,9 +239,7 @@ def run_parallel_analysis_sweep(
         for cluster in sorted(np.unique(labels)):
             scope = f"cluster_{int(cluster)}"
             values = factor_values.loc[labels == cluster]
-            diagnostic_values, dropped_features = remove_constant_features(
-                values
-            )
+            diagnostic_values, dropped_features = remove_constant_features(values)
             x_scaled = standardize_features(diagnostic_values)
             observed, thresholds, suggested_factors = parallel_analysis(
                 x_scaled,
@@ -291,8 +286,7 @@ def run_parallel_analysis_sweep(
                         "observed_eigenvalue": observed_value,
                         "permutation_threshold": threshold,
                         "retain": (
-                            rank
-                            <= min(x_scaled.shape[1], x_scaled.shape[0] - 1)
+                            rank <= min(x_scaled.shape[1], x_scaled.shape[0] - 1)
                             and observed_value > threshold
                         ),
                     }
@@ -306,8 +300,86 @@ def run_parallel_analysis_sweep(
     )
     pd.DataFrame(
         dropped_rows,
-        columns=pd.Index(
-            ["specification_id", "scope", "cluster", "feature"]
-        ),
+        columns=pd.Index(["specification_id", "scope", "cluster", "feature"]),
     ).to_csv(output_dir / "sweep_dropped_constant_features.csv", index=False)
     return summary
+
+
+def factor_analysis_parameter_count(
+    n_features: int,
+    n_factors: int,
+) -> int:
+    rotational_constraints = n_factors * (n_factors - 1) // 2
+    loadings = n_features * n_factors
+    uniquenesses = n_features
+    means = n_features
+    return loadings + uniquenesses + means - rotational_constraints
+
+
+def regularized_gaussian_log_likelihood(
+    x_scaled: np.ndarray,
+    result: FactorModelResult,
+    *,
+    eigenvalue_floor: float,
+) -> np.ndarray:
+    covariance = result.loadings @ result.loadings.T + np.diag(result.uniqueness)
+
+    eigenvalues, eigenvectors = np.linalg.eigh(covariance)
+    regularized_eigenvalues = np.maximum(
+        eigenvalues,
+        eigenvalue_floor,
+    )
+
+    centered = x_scaled - result.mean
+    projected = centered @ eigenvectors
+
+    mahalanobis = (projected**2 / regularized_eigenvalues).sum(axis=1)
+
+    log_determinant = np.log(regularized_eigenvalues).sum()
+
+    normalizer = x_scaled.shape[1] * np.log(2 * np.pi) + log_determinant
+
+    return -0.5 * (normalizer + mahalanobis)
+
+
+def likelihood_metrics(
+    x_scaled: np.ndarray,
+    result: FactorModelResult,
+    *,
+    n_features: int,
+    n_factors: int,
+    eigenvalue_floor: float,
+) -> dict[str, Any]:
+    n_observations = len(result.log_likelihood)
+
+    n_parameters = factor_analysis_parameter_count(
+        n_features,
+        n_factors,
+    )
+
+    exact_total_log_likelihood = float(result.log_likelihood.sum())
+
+    regularized_log_likelihood = regularized_gaussian_log_likelihood(
+        x_scaled,
+        result,
+        eigenvalue_floor=eigenvalue_floor,
+    )
+
+    regularized_total = float(regularized_log_likelihood.sum())
+
+    return {
+        "n_observations": n_observations,
+        "n_parameters": n_parameters,
+        "exact_total_log_likelihood": exact_total_log_likelihood,
+        "exact_mean_log_likelihood": float(result.log_likelihood.mean()),
+        "regularized_total_log_likelihood": regularized_total,
+        "regularized_mean_log_likelihood": float(regularized_log_likelihood.mean()),
+        "regularized_aic": float(2 * n_parameters - 2 * regularized_total),
+        "regularized_bic": float(
+            n_parameters * np.log(n_observations) - 2 * regularized_total
+        ),
+        "likelihood_eigenvalue_floor": eigenvalue_floor,
+        "exact_likelihood_finite": bool(np.isfinite(result.log_likelihood).all()),
+        "minimum_uniqueness": float(result.uniqueness.min()),
+        "uniquenesses_below_floor": int((result.uniqueness < eigenvalue_floor).sum()),
+    }

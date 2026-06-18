@@ -68,9 +68,7 @@ CONFIG = Config[Path, tuple[str, ...]](
 )
 
 CLUSTERING_FEATURE_SETS = (
-    (
-        "services_value_added_per_worker_constant_2015_usd",
-    ),
+    ("services_value_added_per_worker_constant_2015_usd",),
     (
         "services_value_added_per_worker_constant_2015_usd",
         "logistics_performance_index_competence_and_quality_of_logistics_services_one_equals_low_to_five_equals_high",

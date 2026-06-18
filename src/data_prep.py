@@ -11,7 +11,11 @@ def validate_dataset(
     df: pd.DataFrame,
     config,
 ) -> None:
-    required_columns = {*config.id_columns, *config.clustering_features, *config.factor_features}
+    required_columns = {
+        *config.id_columns,
+        *config.clustering_features,
+        *config.factor_features,
+    }
     missing_columns = sorted(required_columns.difference(df.columns))
     if missing_columns:
         raise ValueError(f"Missing required columns: {missing_columns}")
@@ -20,7 +24,9 @@ def validate_dataset(
         raise ValueError(f"Expected only year 2022, got {years}")
 
 
-def select_numeric_features(df: pd.DataFrame, feature_names: Sequence[str]) -> pd.DataFrame:
+def select_numeric_features(
+    df: pd.DataFrame, feature_names: Sequence[str]
+) -> pd.DataFrame:
     numeric = df.loc[:, feature_names].apply(pd.to_numeric, errors="coerce")
     all_missing = numeric.columns[numeric.notna().sum() == 0].tolist()
     if all_missing:

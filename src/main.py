@@ -11,7 +11,7 @@ from config import (
 )
 from data_prep import validate_dataset, prepare_feature_matrix
 from datatypes import Config
-from diagnostics import (
+from model_selection import (
     run_parallel_analysis_diagnostics,
     run_parallel_analysis_sweep,
 )
@@ -35,7 +35,9 @@ def main(config: Config = CONFIG) -> None:
         config,
     )
     cluster_score = silhouette_score(x_cluster, cluster_labels)
-    save_all_cluster_outputs(df, raw_cluster_features, x_cluster, cluster_labels, config)
+    save_all_cluster_outputs(
+        df, raw_cluster_features, x_cluster, cluster_labels, config
+    )
 
     factor_values, x_factor = prepare_feature_matrix(df, config.factor_features)
     factor_result = fit_factor_model(x_factor, config)
@@ -48,9 +50,9 @@ def main(config: Config = CONFIG) -> None:
         config,
     )
 
-    global_metrics = factor_comparison.loc[
-        factor_comparison["scope"] == "global"
-    ].iloc[0]
+    global_metrics = factor_comparison.loc[factor_comparison["scope"] == "global"].iloc[
+        0
+    ]
     clustered_metrics = factor_comparison.loc[
         factor_comparison["scope"] == "within_clusters_weighted_mean"
     ].iloc[0]
@@ -75,6 +77,36 @@ def main(config: Config = CONFIG) -> None:
 
     config_sweep = run_config_sweep(df, EXPERIMENT_CONFIGS)
     config_sweep.to_csv(config.out_dir / "config_sweep.csv", index=False)
+    ranked_config_sweep = config_sweep.loc[
+        (config_sweep["status"] == "ok")
+        & (config_sweep["clustered_status"] == "ok")
+        & config_sweep["clustered_regularized_bic"].notna()
+    ].sort_values(
+        [
+            "clustered_regularized_bic",
+            "clusters_below_efa_rule",
+            "clustered_covariance_reconstruction_rmse",
+        ],
+        ascending=[True, True, True],
+    )
+
+    ranked_config_sweep.to_csv(
+        config.out_dir / "config_sweep_ranked_by_bic.csv",
+        index=False,
+    )
+
+    best_bic = ranked_config_sweep.iloc[0]
+
+    print("Best clustered BIC specification:")
+    print(f"  experiment_id: {best_bic['experiment_id']}")
+    print(f"  clustering features: {best_bic['clustering_features']}")
+    print(f"  n_clusters: {best_bic['n_clusters']}")
+    print(f"  n_factors: {best_bic['n_factors']}")
+    print(f"  clustered BIC: {best_bic['clustered_regularized_bic']:.2f}")
+    print(
+        "  clustered - global BIC: "
+        f"{best_bic['clustered_minus_global_regularized_bic']:.2f}"
+    )
 
     print(f"Rows: {len(df)}")
     print(f"Clustering features: {raw_cluster_features.shape[1]}")

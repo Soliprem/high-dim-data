@@ -12,92 +12,10 @@ import seaborn as sns
 from analysis import assign_kmeans_clusters, fit_factor_model
 from data_prep import prepare_feature_matrix
 from datatypes import Config, FactorModelResult
-
-
-def factor_analysis_parameter_count(
-    n_features: int,
-    n_factors: int,
-) -> int:
-    rotational_constraints = n_factors * (n_factors - 1) // 2
-    loadings = n_features * n_factors
-    uniquenesses = n_features
-    means = n_features
-    return loadings + uniquenesses + means - rotational_constraints
-
-
-def likelihood_metrics(
-    x_scaled: np.ndarray,
-    result: FactorModelResult,
-    *,
-    n_features: int,
-    n_factors: int,
-    eigenvalue_floor: float,
-) -> dict[str, Any]:
-    n_observations = len(result.log_likelihood)
-    n_parameters = factor_analysis_parameter_count(
-        n_features,
-        n_factors,
-    )
-    exact_total_log_likelihood = float(result.log_likelihood.sum())
-    regularized_log_likelihood = regularized_gaussian_log_likelihood(
-        x_scaled,
-        result,
-        eigenvalue_floor=eigenvalue_floor,
-    )
-    regularized_total = float(regularized_log_likelihood.sum())
-    return {
-        "n_observations": n_observations,
-        "n_parameters": n_parameters,
-        "exact_total_log_likelihood": exact_total_log_likelihood,
-        "exact_mean_log_likelihood": float(result.log_likelihood.mean()),
-        "regularized_total_log_likelihood": regularized_total,
-        "regularized_mean_log_likelihood": float(
-            regularized_log_likelihood.mean()
-        ),
-        "regularized_aic": float(
-            2 * n_parameters - 2 * regularized_total
-        ),
-        "regularized_bic": float(
-            n_parameters * np.log(n_observations)
-            - 2 * regularized_total
-        ),
-        "likelihood_eigenvalue_floor": eigenvalue_floor,
-        "exact_likelihood_finite": bool(
-            np.isfinite(result.log_likelihood).all()
-        ),
-        "minimum_uniqueness": float(result.uniqueness.min()),
-        "uniquenesses_below_floor": int(
-            (result.uniqueness < eigenvalue_floor).sum()
-        ),
-    }
-
-
-def regularized_gaussian_log_likelihood(
-    x_scaled: np.ndarray,
-    result: FactorModelResult,
-    *,
-    eigenvalue_floor: float,
-) -> np.ndarray:
-    covariance = (
-        result.loadings @ result.loadings.T
-        + np.diag(result.uniqueness)
-    )
-    eigenvalues, eigenvectors = np.linalg.eigh(covariance)
-    regularized_eigenvalues = np.maximum(
-        eigenvalues,
-        eigenvalue_floor,
-    )
-    centered = x_scaled - result.mean
-    projected = centered @ eigenvectors
-    mahalanobis = (
-        projected**2 / regularized_eigenvalues
-    ).sum(axis=1)
-    log_determinant = np.log(regularized_eigenvalues).sum()
-    normalizer = (
-        x_scaled.shape[1] * np.log(2 * np.pi)
-        + log_determinant
-    )
-    return -0.5 * (normalizer + mahalanobis)
+from model_selection import (
+    likelihood_metrics,
+    regularized_gaussian_log_likelihood,
+)
 
 
 def save_adaptive_heatmap(
@@ -107,10 +25,7 @@ def save_adaptive_heatmap(
     factor_features: tuple[str, ...],
     output_path: Path,
 ) -> None:
-    display_features = [
-        feature.replace("_", " ")
-        for feature in factor_features
-    ]
+    display_features = [feature.replace("_", " ") for feature in factor_features]
     table = pd.DataFrame(
         loadings,
         index=pd.Index(display_features),
@@ -148,10 +63,7 @@ def select_pa_factor_counts(
         raise ValueError(
             "PA summary does not contain every cluster for the adaptive regime"
         )
-    return {
-        int(row.cluster): int(row.suggested_factors)
-        for row in rows.itertuples()
-    }
+    return {int(row.cluster): int(row.suggested_factors) for row in rows.itertuples()}
 
 
 def run_adaptive_regime(
@@ -173,8 +85,7 @@ def run_adaptive_regime(
     assignments = df.loc[:, list(config.id_columns)].copy()
     assignments["cluster"] = cluster_labels
     assignments["n_factors"] = [
-        factor_counts[int(cluster)]
-        for cluster in cluster_labels
+        factor_counts[int(cluster)] for cluster in cluster_labels
     ]
     assignments.to_csv(output_dir / "assignments.csv", index=False)
 
@@ -203,12 +114,8 @@ def run_adaptive_regime(
             n_factors=n_factors,
             eigenvalue_floor=config.likelihood_eigenvalue_floor,
         )
-        adaptive_log_likelihood += float(
-            metrics["regularized_total_log_likelihood"]
-        )
-        adaptive_exact_log_likelihood += float(
-            metrics["exact_total_log_likelihood"]
-        )
+        adaptive_log_likelihood += float(metrics["regularized_total_log_likelihood"])
+        adaptive_exact_log_likelihood += float(metrics["exact_total_log_likelihood"])
         adaptive_parameters += int(metrics["n_parameters"])
         if int(metrics["uniquenesses_below_floor"]) > 0:
             unstable_clusters += 1
@@ -300,16 +207,14 @@ def run_adaptive_regime(
     total_observations = len(df)
     adaptive_aic = 2 * adaptive_parameters - 2 * adaptive_log_likelihood
     adaptive_bic = (
-        adaptive_parameters * np.log(total_observations)
-        - 2 * adaptive_log_likelihood
+        adaptive_parameters * np.log(total_observations) - 2 * adaptive_log_likelihood
     )
     summary_rows.append(
         {
             "model": "adaptive_aggregate",
             "cluster": "all",
             "n_factors": "/".join(
-                str(factor_counts[cluster])
-                for cluster in sorted(factor_counts)
+                str(factor_counts[cluster]) for cluster in sorted(factor_counts)
             ),
             "criterion_scope": "conditional_on_fixed_clusters",
             "warning": (
@@ -328,12 +233,8 @@ def run_adaptive_regime(
             ),
             "regularized_aic": adaptive_aic,
             "regularized_bic": adaptive_bic,
-            "likelihood_eigenvalue_floor": (
-                config.likelihood_eigenvalue_floor
-            ),
-            "exact_likelihood_finite": bool(
-                np.isfinite(adaptive_exact_log_likelihood)
-            ),
+            "likelihood_eigenvalue_floor": (config.likelihood_eigenvalue_floor),
+            "exact_likelihood_finite": bool(np.isfinite(adaptive_exact_log_likelihood)),
             "minimum_uniqueness": np.nan,
             "uniquenesses_below_floor": np.nan,
         }
