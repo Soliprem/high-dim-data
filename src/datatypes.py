@@ -3,7 +3,9 @@ from __future__ import annotations
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Generic, TypeVar, Literal
+from typing import Generic, Literal, TypeVar
+
+import numpy as np
 
 
 PathT = TypeVar("PathT", bound=Path)
@@ -26,3 +28,10 @@ class Config(Generic[PathT, FeaturesT]):
     id_columns: FeaturesT
 
     rotation: Rotation
+
+
+@dataclass(frozen=True)
+class FactorModelResult:
+    loadings: np.ndarray
+    uniqueness: np.ndarray
+    scores: np.ndarray

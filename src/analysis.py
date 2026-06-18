@@ -4,10 +4,12 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.decomposition import FactorAnalysis
 
+from datatypes import Config, FactorModelResult
+
 
 def assign_kmeans_clusters(
     x_scaled: np.ndarray,
-    config,
+    config: Config,
 ) -> np.ndarray:
     model = KMeans(
         n_clusters=config.n_clusters,
@@ -20,12 +22,23 @@ def assign_kmeans_clusters(
 
 def fit_factor_model(
     x_scaled: np.ndarray,
-    config
-):
+    config: Config,
+) -> FactorModelResult:
+    if config.n_factors > x_scaled.shape[1]:
+        raise ValueError(
+            f"Cannot fit {config.n_factors} factors with only "
+            f"{x_scaled.shape[1]} features"
+        )
+
     model = FactorAnalysis(
         n_components=config.n_factors,
         rotation=config.rotation,
         random_state=config.seed,
     )
-    model.fit(x_scaled)
-    return model.components_.T
+    scores = model.fit_transform(x_scaled)
+
+    return FactorModelResult(
+        loadings=np.asarray(model.components_.T, dtype=float),
+        uniqueness=np.asarray(model.noise_variance_, dtype=float),
+        scores=np.asarray(scores, dtype=float),
+    )
