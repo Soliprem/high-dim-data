@@ -5,6 +5,7 @@ from collections.abc import Sequence
 import numpy as np
 import pandas as pd
 from sklearn.metrics import silhouette_score
+from tqdm.auto import tqdm
 
 from analysis import assign_kmeans_clusters, fit_factor_model
 from data_prep import prepare_feature_matrix
@@ -212,7 +213,12 @@ def run_config_sweep(
         FactorModelResult,
     ] = {}
 
-    for experiment_id, config in enumerate(configs, start=1):
+    for experiment_id, config in tqdm(
+        enumerate(configs, start=1),
+        total=len(configs),
+        desc="Config sweep",
+        unit="config",
+    ):
         try:
             cluster_key = (
                 tuple(config.clustering_features),

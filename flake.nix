@@ -13,13 +13,14 @@
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
           (python3.withPackages
-            (python-pkgs: [
-              python-pkgs.matplotlib
-              python-pkgs.numpy
-              python-pkgs.pandas
-              python-pkgs.scikit-learn
-              python-pkgs.scipy
-              python-pkgs.seaborn
+            (python-pkgs: with python-pkgs; [
+              matplotlib
+              numpy
+              pandas
+              scikit-learn
+              scipy
+              seaborn
+              tqdm
             ]))
         ];
       };

@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import silhouette_score
+from tqdm.auto import tqdm
 
 from analysis import assign_kmeans_clusters
 from data_prep import prepare_feature_matrix, standardize_features
@@ -227,7 +228,12 @@ def run_parallel_analysis_sweep(
             }
         )
 
-    for specification_id, config in enumerate(configs, start=1):
+    for specification_id, config in tqdm(
+        enumerate(configs, start=1),
+        total=len(configs),
+        desc="Parallel-analysis sweep",
+        unit="spec",
+    ):
         _, x_cluster = prepare_feature_matrix(
             df,
             config.clustering_features,
