@@ -1,6 +1,6 @@
 scope,n_observations,n_input_variables,n_variables,n_dropped_constant,iterations,percentile,suggested_factors
 global,217,58,58,0,500,95.0,11
-cluster_1,46,58,58,0,500,95.0,11
-cluster_2,34,58,58,0,500,95.0,17
+cluster_1,46,58,58,0,500,95.0,6
+cluster_2,34,58,58,0,500,95.0,5
 cluster_3,108,58,58,0,500,95.0,9
-cluster_4,29,58,53,5,500,95.0,14
+cluster_4,29,58,53,5,500,95.0,4
