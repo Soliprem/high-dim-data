@@ -1,7 +1,6 @@
 #import "@preview/physica:0.9.6": *
 #import "@preview/beautiframe:0.1.0": *
 #import "@preview/equate:0.3.2": *
-#import "@preview/game-theoryst:0.1.0": *
 #import "@preview/cetz:0.4.2": *
 #beautiframe-setup(style: "minimal", link-to-section: true)
 #show: equate.with(breakable: true, sub-numbering: true)
@@ -15,67 +14,6 @@
   #body
 ]
 
-#let game-tree(
-  players: ("Player 1", "Player 2"),
-  actions1: ("L", "R"),
-  actions2: ("L", "R"),
-  payoffs: ("[0, 0]", "[0, 0]", "[0, 0]", "[0, 0]"),
-  spread: 2.5,
-  grow: 2,
-  simultaneous: false // Added optional parameter here
-) = {
-  align(center, canvas({
-    import draw: *
-    
-    // Dynamically build the game tree array based on inputs
-    let game-tree = (
-      players.at(0),
-      (
-        (content: players.at(1), action: actions1.at(0)),
-        (content: payoffs.at(0), action: actions2.at(0)),
-        (content: payoffs.at(1), action: actions2.at(1))
-      ),
-      (
-        (content: players.at(1), action: actions1.at(1)),
-        (content: payoffs.at(2), action: actions2.at(0)),
-        (content: payoffs.at(3), action: actions2.at(1))
-      )
-    )
-
-    tree.tree(
-      game-tree,
-      name: "game",
-      direction: "down",
-      spread: spread,
-      grow: grow,
-      
-      draw-node: (node, ..) => {
-        let c = node.content
-        let text-val = if type(c) == dictionary and "content" in c {
-          c.content
-        } else {
-          c
-        }
-        content((), box(fill: white, inset: 3pt, text-val))
-      },
-      
-      draw-edge: (from, to, parent, child, ..) => {
-        line(from, to, name: "line")
-        
-        if type(child.content) == dictionary and "action" in child.content {
-          content("line.mid", box(fill: white, inset: 2pt, child.content.action))
-        }
-      }
-    )
-
-    // Draw the information set line connecting Player 2's nodes only if true
-    if simultaneous {
-      on-layer(0, {
-        line("game.0-0", "game.0-1", stroke: (dash: "dashed"))
-      })
-    }
-  }))
-}
 #let authors = (
   (
     name: "Francesco Prem Solidoro",
@@ -89,7 +27,7 @@
   ),
 )
 
-#let title = [Statistics for High Dimensional Data project]
+#let title = [Clustering for Exploratory Factor Analysis]
 
 #set align(center)
 #text(size: 17pt, weight: "bold")[#title]
@@ -112,17 +50,24 @@
 
 #outline(depth: 2)
 
+
 = Introduction
-When dealing with data of high dimensionality multiple dimensionality reduction techniques are available, each with its own strengths and weaknesses. When dealing with economic data and development indicators we are often met with highly correlated metrics which make for a fitting environment in which to apply Factor Analysis. \
-However it is often true that such data is often riddled with multicollinearity and heterogeneity in the metrics, which may lead to unsatisfactory results in FA models.
+//When dealing with data of high dimensionality multiple dimensionality reduction techniques are available, each with its own strengths and weaknesses.
+
+High-dimensional datasets often contain many correlated variables, making direct interpretation difficult. Dimensionality-reduction techniques aim to summarize this information using a smaller number of informative dimensions. In the case of economic and development indicators, many observed variables are likely to reflect common latent structures, such as trade openness, institutional capacity, service-sector development, or financial exposure. This makes exploratory factor analysis a natural modelling tool.
+
+However, country-level development data may also be heterogeneous. Relationships among indicators may differ across groups of economies. A single global factor model may therefore be too restrictive if it assumes one common covariance structure for all countries.
 
 == Research Question
 The objective of this paper is to determine whether conditioning on service productivity and institutional-logistics capacity reveals heterogeneous covariance regimes, allowing cluster-specific factor models to achieve a lower conditional regularized BIC than a single global factor model. The underlying hypothesis is that countries operating at different levels of service productivity and logistics capacity may exhibit different relationships among trade, investment, debt, inflation, services, and institutional indicators.
 
 = Data
-The dataset provided by the instructors, WDI 2022, contains highly correlated (development) metrics, making for a fitting application of Factor Analysis
-which will reduce multicollinearity by isolating the latent variables. \ 
-Our hypothesis is that aggregating data from 200+ economies may prove to be too complex for Factor Analysis as-is, and that the performance of the model may be improved by first clustering the data.
+
+The analysis uses the WDI 2022 dataset provided for the course. The dataset contains country-level economic, trade, investment, service-sector, institutional, fiscal, and price indicators for 217 economies. Identification variables, including country name, ISO3 code, World Bank region, income group, and year, were retained only for interpretation and were excluded from clustering and factor analysis.
+
+After preprocessing and comparability filtering, the final factor-analysis dataset contains 43 numerical indicators. These variables are suitable for exploratory factor analysis because many WDI indicators are correlated and may reflect common latent economic dimensions, such as trade openness, service-sector development, investment structure, debt exposure, institutional capacity, and inflation dynamics.
+
+The empirical objective is to test whether estimating factor models separately within clusters of countries improves the representation of this covariance structure relative to a single global factor model.
 
 = Theoretical Overview
 The following section will go over the theory underlying the analysis methods that will be used in the paper.
@@ -160,7 +105,7 @@ In our specific case, due to our usage of k-means we can avoid using pairwise di
 === General Model
 Factor analysis is an analysis method that highlights the dependence of observed variables and reduces dimensionality by expressing them in a smaller set of latent variables #footnote[variables that can't be measured directly]. \
 Since we expect indicators of the same latent variable to be correlated we can analyze the correlation matrix and construct a factor model where, given correlated $X_1, X_2, ...X_d$ variables that depend on the common factor $f_i$. \
-We obtain factor loadings $lambda_(i j)$ estimated from the covariance structure of the data, which describe the relationship between observed variables and latent factors, as it can be shown that $bold(Sigma) = bold(Lambda) bold(Lambda)' + bold(Psi)$. \
+Factor loadings $lambda_(i j)$ are estimated from the covariance structure of the data and describe the relationship between observed variables and latent factors. Under the factor model, the covariance matrix can be expressed as: $bold(Sigma) = bold(Lambda) bold(Lambda)' + bold(Psi)$  \
 Then, the general model is obtained as:
 $
 X_i = mu_i + lambda_( i 1) f_1 + lambda_( i 2) f_2 + ...lambda_( i q) f_q + u_i \
@@ -234,7 +179,8 @@ Maximum likelihood estimation uses iterative numerical optimization procedures t
 === Rotation and Factor Scores
 Factor models are invariant to orthogonal rotations on loadings. Rotation aims to obtain a simple structure, where each variable loads strongly on a small number of factors and weakly on others.
 
-Factor Loadings are easily interpreted by ensuring that each variable is loaded mostly on one factor and that all loadings are either large and positive or close to zero.
+Factor Loadings are easily interpreted by ensuring that each variable is loaded mostly on one factor and that all loadings are either large or close to zero.
+
 
 Additionally, we can choose from two types of rotations:
 + Orthogonal rotations: factors are restricted to be uncorrelated. When variables are standardized within the modeled sample, loadings can be interpreted as variable--factor correlations
@@ -245,16 +191,13 @@ In the paper we use Varimax, a kind of orthogonal rotation that constrains facto
 Once an appropriate rotation is found all that's left is estimating the factor scores, which can be done via different methods. Some example methods are:
 - Bartlett's method, which uses MLE, and scores for the ith individual are:
   $ hat(f_i) = (bold(hat(Lambda))' bold(hat(Psi))^(-1) bold(hat(Lambda)))^(-1) bold(hat(Lambda))' bold(hat(Psi))^(-1) x_i  $
-- Thomson's method, where estimates of factor scores are obtained as in a bayesian framework. scores for the ith individual are:
+- Thomson's method, where estimates of factor scores are obtained as in a Bayesian framework. Scores for the ith individual are:
   $ hat(f_i) = ( I + bold(hat(Lambda))' bold(hat(Psi))^(-1) bold(hat(Lambda)) )^(-1) bold(hat(Lambda))' bold(hat(Psi))^(-1) x_i $
 
 Factor scores were estimated using the regression-based scoring procedure implemented in scikit-learn.
 
 == Trade-off
-
-Clustering conditions the analysis on the clustering variables and restricts their variation within each cluster. This range restriction may weaken the apparent relationship between those variables and the latent factors. Conversely, the partition may reveal covariance structures that are obscured when heterogeneous countries are pooled into one global sample.
-
-Estimating separate factor structures within clusters may better capture heterogeneous covariance patterns, but it reduces the effective sample size available for each model and increases model complexity. Excessive partitioning may therefore lead to unstable estimates and overfitting.
+Estimating separate factor structures within clusters may better capture heterogeneous covariance patterns, but it reduces the effective sample size available for each model and increases model complexity. Excessive partitioning may therefore lead to unstable estimates and overfitting. Furthermore, clustering introduces dependence on the selected partitioning scheme, since different clustering specifications may produce different covariance structures and therefore different factor solutions.
 
 
 = Methods
@@ -352,16 +295,17 @@ For global models, we computed BIC using the full-sample log-likelihood, the tot
 For clustered models, we computed BIC as the sum of cluster-specific BIC values:
 
 $
-"BIC"_"clustered" = sum_(c=1)^k (p_c log(n_c) - 2 ell_c).
+"BIC"_"clustered" = sum_(c=1)^k (p_c log(n_c) - 2 ell_c)
 $
 
 where ($p_c$) is the number of parameters estimated in cluster ($c$), ($n_c$) is the number of observations in cluster ($c$), and ($ell_c$) is the regularized log-likelihood of the factor model fitted within cluster ($c$). Cluster assignments were treated as fixed after k-means clustering.
 
 This criterion is conditional on the clustering partition. It does not estimate a full joint likelihood for the clustering step and the factor-analysis step together. Therefore, the BIC comparison should be interpreted as comparing factor models conditional on the selected clusters.
 
-We considered a fixed-factor model admissible if it successfully estimated all cluster-specific factor models, produced a finite regularized clustered BIC, had no cluster model with uniquenesses below the likelihood eigenvalue floor, and used no more factors than the eight-factor cap suggested by global parallel analysis or than the size of the smallest cluster.
+We considered a fixed-factor model admissible if it successfully estimated all cluster-specific factor models, produced a finite regularized clustered BIC, had no cluster model with uniquenesses below the likelihood eigenvalue floor, and used no more factors than the smaller of the global PA cap and the smallest cluster size.
 
 == Parallel analysis
+Parallel analysis determines the number of factors by comparing the eigenvalues of the observed correlation matrix with eigenvalues obtained from permuted versions of the observed data with the same dimensions. Factors are retained only when their observed eigenvalues exceed the corresponding random eigenvalues.
 
 The number of factors was assessed through permutation-based parallel analysis.
 For each scope, the observed eigenvalues were compared with the 95th
@@ -370,7 +314,7 @@ An observed factor was retained when its eigenvalue exceeded the corresponding
 permutation threshold. This procedure suggested eight factors for the global
 sample.
 
-== Adaptive parallel-analysis regime
+=== Adaptive parallel-analysis regime
 
 Parallel analysis suggested eight factors for the global model. For the
 three-cluster adaptive specification, it suggested respectively 5, 6, and 7
@@ -380,7 +324,7 @@ The adaptive aggregate obtained a regularized BIC of 15063.88. However, the
 six-factor model in the second cluster contained three uniqueness estimates
 below the numerical regularization threshold. Its exact and regularized
 likelihoods consequently differed substantially. Therefore, we classified the adaptive result
-as unstable and did not select it as the preferred model, despite its lower regularized BIC.
+as unstable in this specification, and did not select it as the preferred model, despite its lower regularized BIC.
 
 = Interpretation
 
@@ -418,7 +362,7 @@ and simple-structure diagnostics.
 
 The best unconstrained fixed-factor model achieved a much lower BIC of 7407.29, using six clusters and twenty-one factors. However, this model is not selected as the preferred specification because it does not satisfy the admissibility criteria: it is highly complex and five cluster-specific factor models are unstable. It is therefore useful only as a numerical benchmark showing how much fit can improve when model complexity is left essentially unrestricted.
 
-The adaptive PA model used three clusters and selected 5, 6, and 7 factors, respectively. Its regularized BIC was 15063.88, which is lower than the best stable fixed-factor model. However, one of the cluster-specific models was near-singular, with uniqueness estimates below the numerical regularization threshold. For this reason, the adaptive model is treated as a sensitivity check rather than as the preferred final specification.
+The adaptive PA model used three clusters and selected 5, 6, and 7 factors, respectively. Its regularized BIC was 15063.88, which is lower than the best stable fixed-factor model. However, one of the cluster-specific models was near-singular, with uniqueness estimates below the numerical regularization threshold. For this reason, the adaptive model is treated as a sensitivity check rather than as the preferred final specification. It shows, however, strong promise.
 
 The final preferred specification is therefore the best admissible fixed-factor model: two clusters and eight factors, with clustering based on service productivity and logistics performance. This model provides a substantial improvement over the global eight-factor model while avoiding the numerical instability observed in the adaptive specification and the excessive complexity of the unconstrained model.
 
@@ -473,7 +417,7 @@ economies.
 
 This project investigated whether clustering countries before estimating exploratory factor analysis improves the representation of a high-dimensional WDI 2022 dataset.
 
-The analysis supports this hypothesis under the primary model-quality criterion. After preprocessing the data to improve cross-country comparability, parallel analysis suggested an eight-factor global structure. The corresponding global factor model was stable, but the clustered version with two clusters and eight factors achieved a substantially lower conditional regularized BIC. This indicates that cluster-specific models provide a better penalized likelihood--complexity trade-off than a single global factor model, although the global model retains slightly better covariance-reconstruction and simple-structure diagnostics.
+The analysis supports this hypothesis under the conditional regularized BIC criterion. After preprocessing the data to improve cross-country comparability, parallel analysis suggested an eight-factor global structure. The corresponding global factor model was stable, but the clustered version with two clusters and eight factors achieved a substantially lower conditional regularized BIC. This indicates that cluster-specific models provide a better penalized likelihood--complexity trade-off than a single global factor model, although the global model retains slightly better covariance-reconstruction and simple-structure diagnostics.
 
 The final preferred model is the stable two-cluster, eight-factor specification. This model balances fit, interpretability, and numerical stability. The unconstrained six-cluster, twenty-one-factor model achieved the lowest BIC overall, but was too complex and unstable to be interpreted as the final result. The adaptive PA model achieved a lower BIC than the selected fixed-factor model, but one of its cluster-specific factor models was near-singular, so it was retained only as a sensitivity check.
 
