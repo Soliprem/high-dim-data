@@ -203,6 +203,8 @@ Estimating separate factor structures within clusters may better capture heterog
 = Methods
 The empirical strategy follows four main steps: data preprocessing, clustering, factor analysis, and model comparison.
 
+All of the code used for this project can be found in #link("https://github.com/soliprem/high-dim-data")[this repository.]
+
 == Data Preprocessing
 
 We analyzed the WDI 2022 dataset. Identification variables, including country
