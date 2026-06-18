@@ -97,6 +97,7 @@ def run_adaptive_regime(
     adaptive_exact_log_likelihood = 0.0
     adaptive_log_likelihood = 0.0
     adaptive_parameters = 0
+    adaptive_bic = 0.0
     unstable_clusters = 0
 
     for cluster in sorted(factor_counts):
@@ -117,6 +118,7 @@ def run_adaptive_regime(
         adaptive_log_likelihood += float(metrics["regularized_total_log_likelihood"])
         adaptive_exact_log_likelihood += float(metrics["exact_total_log_likelihood"])
         adaptive_parameters += int(metrics["n_parameters"])
+        adaptive_bic += float(metrics["regularized_bic"])
         if int(metrics["uniquenesses_below_floor"]) > 0:
             unstable_clusters += 1
 
@@ -206,9 +208,6 @@ def run_adaptive_regime(
 
     total_observations = len(df)
     adaptive_aic = 2 * adaptive_parameters - 2 * adaptive_log_likelihood
-    adaptive_bic = (
-        adaptive_parameters * np.log(total_observations) - 2 * adaptive_log_likelihood
-    )
     summary_rows.append(
         {
             "model": "adaptive_aggregate",

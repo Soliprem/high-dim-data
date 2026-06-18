@@ -114,6 +114,7 @@ def summarize_config(
     clustered_exact_log_likelihood = 0.0
     clustered_parameters = 0
     clustered_unstable_models = 0
+    clustered_regularized_bic = 0.0
     for cluster in sorted(np.unique(cluster_labels)):
         cluster_mask = cluster_labels == cluster
 
@@ -137,19 +138,15 @@ def summarize_config(
             cluster_likelihood["exact_total_log_likelihood"]
         )
         clustered_parameters += int(cluster_likelihood["n_parameters"])
+        clustered_regularized_bic += float(
+            cluster_likelihood["regularized_bic"]
+        )
 
         if int(cluster_likelihood["uniquenesses_below_floor"]) > 0:
             clustered_unstable_models += 1
 
-    n_observations = len(df)
-
     clustered_regularized_aic = (
         2 * clustered_parameters - 2 * clustered_regularized_log_likelihood
-    )
-
-    clustered_regularized_bic = (
-        clustered_parameters * np.log(n_observations)
-        - 2 * clustered_regularized_log_likelihood
     )
 
     summary["clustered_n_parameters"] = clustered_parameters
