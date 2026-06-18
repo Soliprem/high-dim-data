@@ -102,6 +102,19 @@ def main(config: Config = CONFIG) -> None:
     best_unconstrained = ranked.iloc[0]
     best_admissible = admissible.iloc[0]
 
+    adaptive_best = adaptive_regime_summary.loc[
+        adaptive_regime_summary["model"] == "adaptive_aggregate"
+    ].iloc[0]
+
+    print("Adaptive PA regime:")
+    print(f"  n_clusters: {PA_REGIME_CONFIG.n_clusters}")
+    print(f"  n_factors: {adaptive_best['n_factors']}")
+    print(f"  regularized BIC: {adaptive_best['regularized_bic']:.2f}")
+    print(
+        "  adaptive - best admissible BIC: "
+        f"{adaptive_best['regularized_bic'] - best_admissible['clustered_regularized_bic']:.2f}"
+    )
+
     print_best("Best unconstrained clustered BIC specification:", best_unconstrained)
     print_best("Best admissible clustered BIC specification:", best_admissible)
 
