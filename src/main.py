@@ -5,6 +5,7 @@ from analysis import assign_kmeans_clusters, fit_factor_model
 from config import CONFIG, EXPERIMENT_CONFIGS
 from data_prep import validate_dataset, prepare_feature_matrix
 from datatypes import Config
+from diagnostics import run_parallel_analysis_diagnostics
 from experiments import run_config_sweep
 from helpers import save_all_cluster_outputs, save_all_factor_outputs
 
@@ -45,6 +46,12 @@ def main(config: Config = CONFIG) -> None:
         factor_comparison["scope"] == "within_clusters_weighted_mean"
     ].iloc[0]
 
+    parallel_analysis_summary = run_parallel_analysis_diagnostics(
+        factor_values,
+        cluster_labels,
+        config,
+    )
+
     config_sweep = run_config_sweep(df, EXPERIMENT_CONFIGS)
     config_sweep.to_csv(config.out_dir / "config_sweep.csv", index=False)
 
@@ -61,6 +68,11 @@ def main(config: Config = CONFIG) -> None:
         "Clustered EFA weighted RMSE: "
         f"{clustered_metrics['covariance_reconstruction_rmse']:.4f}"
     )
+    global_pa_factors = parallel_analysis_summary.loc[
+        parallel_analysis_summary["scope"] == "global",
+        "suggested_factors",
+    ].iloc[0]
+    print(f"Global PA suggested factors: {global_pa_factors}")
     print(f"Config experiments: {len(config_sweep)}")
     print(f"Outputs written to {config.out_dir}")
 

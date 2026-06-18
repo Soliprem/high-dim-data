@@ -28,6 +28,8 @@ class Config(Generic[PathT, FeaturesT]):
     id_columns: FeaturesT
 
     rotation: Rotation
+    parallel_analysis_iterations: int
+    parallel_analysis_percentile: float
 
 
 @dataclass(frozen=True)

@@ -61,7 +61,9 @@ CONFIG = Config[Path, tuple[str, ...]](
     ),
     factor_features=FACTOR_FEATURE_OPTIONS["all"],
     id_columns=ID_COLUMNS,
-    rotation="varimax"
+    rotation="varimax",
+    parallel_analysis_iterations=500,
+    parallel_analysis_percentile=95.0,
 )
 
 CLUSTERING_FEATURE_SETS = (
