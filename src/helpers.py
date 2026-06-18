@@ -254,13 +254,13 @@ def add_cluster_loadings(
         rows.append(row)
 
 
-def save_factor_model_comparison(
+def build_factor_model_comparison(
     df: pd.DataFrame,
     cluster_labels: np.ndarray,
     global_x_scaled: np.ndarray,
     global_result: FactorModelResult,
     config: Config,
-) -> pd.DataFrame:
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     comparison_rows = [
         factor_model_comparison_row(
             "global",
@@ -325,11 +325,28 @@ def save_factor_model_comparison(
         [comparison, pd.DataFrame([weighted_summary])],
         ignore_index=True,
     )
+    return comparison, pd.DataFrame(cluster_loading_rows)
+
+
+def save_factor_model_comparison(
+    df: pd.DataFrame,
+    cluster_labels: np.ndarray,
+    global_x_scaled: np.ndarray,
+    global_result: FactorModelResult,
+    config: Config,
+) -> pd.DataFrame:
+    comparison, cluster_loadings = build_factor_model_comparison(
+        df,
+        cluster_labels,
+        global_x_scaled,
+        global_result,
+        config,
+    )
     comparison.to_csv(
         config.out_dir / "factor_model_comparison.csv",
         index=False,
     )
-    pd.DataFrame(cluster_loading_rows).to_csv(
+    cluster_loadings.to_csv(
         config.out_dir / "factor_loadings_by_cluster.csv",
         index=False,
     )

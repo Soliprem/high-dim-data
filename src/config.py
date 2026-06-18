@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+from itertools import product
 from pathlib import Path
 
 from datatypes import Config
@@ -42,4 +44,33 @@ CONFIG = Config[Path, tuple[str, ...]](
         "observation_year",
     ),
     rotation="varimax"
+)
+
+CLUSTERING_FEATURE_SETS = (
+    (
+        "services_value_added_per_worker_constant_2015_usd",
+    ),
+    (
+        "services_value_added_per_worker_constant_2015_usd",
+        "logistics_performance_index_competence_and_quality_of_logistics_services_one_equals_low_to_five_equals_high",
+    ),
+    (
+        "services_value_added_per_worker_constant_2015_usd",
+        "logistics_performance_index_competence_and_quality_of_logistics_services_one_equals_low_to_five_equals_high",
+        "statistical_performance_indicators_spi_pillar_2_data_services_score_scale_0_100",
+    ),
+)
+
+EXPERIMENT_CONFIGS = tuple(
+    replace(
+        CONFIG,
+        clustering_features=clustering_features,
+        n_clusters=n_clusters,
+        n_factors=n_factors,
+    )
+    for clustering_features, n_clusters, n_factors in product(
+        CLUSTERING_FEATURE_SETS,
+        range(2, 7),
+        range(1, 5),
+    )
 )
