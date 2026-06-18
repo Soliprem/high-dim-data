@@ -64,6 +64,7 @@ CONFIG = Config[Path, tuple[str, ...]](
     rotation="varimax",
     parallel_analysis_iterations=500,
     parallel_analysis_percentile=95.0,
+    likelihood_eigenvalue_floor=1e-6,
 )
 
 CLUSTERING_FEATURE_SETS = (
@@ -91,6 +92,12 @@ CLUSTERING_CONFIGS = tuple(
         CLUSTERING_FEATURE_SETS,
         range(2, 7),
     )
+)
+
+PA_REGIME_CONFIG = replace(
+    CONFIG,
+    clustering_features=CLUSTERING_FEATURE_SETS[0],
+    n_clusters=3,
 )
 
 EXPERIMENT_CONFIGS = tuple(

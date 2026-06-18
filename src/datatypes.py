@@ -30,6 +30,7 @@ class Config(Generic[PathT, FeaturesT]):
     rotation: Rotation
     parallel_analysis_iterations: int
     parallel_analysis_percentile: float
+    likelihood_eigenvalue_floor: float
 
 
 @dataclass(frozen=True)
@@ -37,3 +38,5 @@ class FactorModelResult:
     loadings: np.ndarray
     uniqueness: np.ndarray
     scores: np.ndarray
+    log_likelihood: np.ndarray
+    mean: np.ndarray

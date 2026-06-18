@@ -1,8 +1,14 @@
 import pandas as pd
 from sklearn.metrics import silhouette_score
 
+from adaptive import run_adaptive_regime
 from analysis import assign_kmeans_clusters, fit_factor_model
-from config import CLUSTERING_CONFIGS, CONFIG, EXPERIMENT_CONFIGS
+from config import (
+    CLUSTERING_CONFIGS,
+    CONFIG,
+    EXPERIMENT_CONFIGS,
+    PA_REGIME_CONFIG,
+)
 from data_prep import validate_dataset, prepare_feature_matrix
 from datatypes import Config
 from diagnostics import (
@@ -60,6 +66,12 @@ def main(config: Config = CONFIG) -> None:
         CLUSTERING_CONFIGS,
         config.out_dir / "diagnostics" / "parallel_analysis",
     )
+    adaptive_regime_summary = run_adaptive_regime(
+        df,
+        x_factor,
+        parallel_analysis_sweep,
+        PA_REGIME_CONFIG,
+    )
 
     config_sweep = run_config_sweep(df, EXPERIMENT_CONFIGS)
     config_sweep.to_csv(config.out_dir / "config_sweep.csv", index=False)
@@ -86,6 +98,11 @@ def main(config: Config = CONFIG) -> None:
         "PA clustering specifications: "
         f"{parallel_analysis_sweep['specification_id'].max()}"
     )
+    adaptive_factors = adaptive_regime_summary.loc[
+        adaptive_regime_summary["model"] == "adaptive_aggregate",
+        "n_factors",
+    ].iloc[0]
+    print(f"Adaptive regime factors: {adaptive_factors}")
     print(f"Config experiments: {len(config_sweep)}")
     print(f"Outputs written to {config.out_dir}")
 

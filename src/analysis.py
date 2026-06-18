@@ -42,4 +42,6 @@ def fit_factor_model(
         loadings=np.asarray(model.components_.T, dtype=float),
         uniqueness=np.asarray(model.noise_variance_, dtype=float),
         scores=np.asarray(scores, dtype=float),
+        log_likelihood=np.asarray(model.score_samples(x_scaled), dtype=float),
+        mean=np.asarray(model.mean_, dtype=float),
     )
