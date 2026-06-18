@@ -27,10 +27,11 @@ def main(config: Config = CONFIG) -> None:
     cluster_score = silhouette_score(x_cluster, cluster_labels)
     save_all_cluster_outputs(df, raw_cluster_features, x_cluster, cluster_labels, config)
 
-    _, x_factor = prepare_feature_matrix(df, config.factor_features)
+    factor_values, x_factor = prepare_feature_matrix(df, config.factor_features)
     factor_result = fit_factor_model(x_factor, config)
     factor_comparison = save_all_factor_outputs(
         df,
+        factor_values,
         x_factor,
         cluster_labels,
         factor_result,

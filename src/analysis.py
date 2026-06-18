@@ -24,10 +24,11 @@ def fit_factor_model(
     x_scaled: np.ndarray,
     config: Config,
 ) -> FactorModelResult:
-    if config.n_factors > x_scaled.shape[1]:
+    max_factors = min(x_scaled.shape)
+    if config.n_factors > max_factors:
         raise ValueError(
-            f"Cannot fit {config.n_factors} factors with only "
-            f"{x_scaled.shape[1]} features"
+            f"Cannot fit {config.n_factors} factors to a matrix with shape "
+            f"{x_scaled.shape}; maximum is {max_factors}"
         )
 
     model = FactorAnalysis(

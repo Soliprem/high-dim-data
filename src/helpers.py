@@ -9,7 +9,7 @@ import seaborn as sns
 from sklearn.decomposition import PCA
 
 from analysis import fit_factor_model
-from data_prep import prepare_feature_matrix
+from data_prep import standardize_features
 from datatypes import Config, FactorModelResult
 
 
@@ -182,6 +182,58 @@ def save_factor_heatmap(
     plt.close()
 
 
+def save_factor_scree_plot(
+    x_scaled: np.ndarray,
+    config: Config,
+) -> None:
+    correlation = np.corrcoef(x_scaled, rowvar=False)
+    eigenvalues = np.linalg.eigvalsh(correlation)[::-1]
+    explained_variance = eigenvalues / eigenvalues.sum()
+    cumulative_variance = np.cumsum(explained_variance)
+    component_numbers = np.arange(1, len(eigenvalues) + 1)
+
+    figure, eigenvalue_axis = plt.subplots(figsize=(11, 6))
+    eigenvalue_axis.plot(
+        component_numbers,
+        eigenvalues,
+        marker="o",
+        markersize=4,
+        linewidth=1.5,
+        label="Eigenvalue",
+    )
+    eigenvalue_axis.axhline(
+        1.0,
+        color="gray",
+        linestyle="--",
+        linewidth=1,
+        label="Kaiser threshold",
+    )
+    eigenvalue_axis.set_xlabel("Number of factors")
+    eigenvalue_axis.set_ylabel("Correlation-matrix eigenvalue")
+    tick_step = max(1, len(component_numbers) // 15)
+    eigenvalue_axis.set_xticks(component_numbers[::tick_step])
+    eigenvalue_axis.grid(axis="y", alpha=0.25)
+
+    variance_axis = eigenvalue_axis.twinx()
+    variance_axis.plot(
+        component_numbers,
+        cumulative_variance,
+        color="tab:orange",
+        linewidth=2,
+        label="Cumulative explained variance",
+    )
+    variance_axis.set_ylabel("Cumulative explained variance")
+    variance_axis.set_ylim(0.0, 1.05)
+
+    lines = eigenvalue_axis.lines + variance_axis.lines
+    labels = [str(line.get_label()) for line in lines]
+    eigenvalue_axis.legend(lines, labels, loc="center right")
+    plt.title("Factor Scree Plot")
+    figure.tight_layout()
+    figure.savefig(config.out_dir / "factor_scree_plot.png", dpi=180)
+    plt.close(figure)
+
+
 def factor_structure_metrics(
     x_scaled: np.ndarray,
     result: FactorModelResult,
@@ -257,6 +309,7 @@ def add_cluster_loadings(
 def build_factor_model_comparison(
     df: pd.DataFrame,
     cluster_labels: np.ndarray,
+    global_factor_values: pd.DataFrame,
     global_x_scaled: np.ndarray,
     global_result: FactorModelResult,
     config: Config,
@@ -274,10 +327,8 @@ def build_factor_model_comparison(
 
     for cluster in sorted(np.unique(cluster_labels).tolist()):
         cluster_mask = cluster_labels == cluster
-        cluster_df = df.loc[cluster_mask]
-        _, cluster_x_scaled = prepare_feature_matrix(
-            cluster_df,
-            config.factor_features,
+        cluster_x_scaled = standardize_features(
+            global_factor_values.loc[cluster_mask]
         )
         cluster_result = fit_factor_model(cluster_x_scaled, config)
 
@@ -331,6 +382,7 @@ def build_factor_model_comparison(
 def save_factor_model_comparison(
     df: pd.DataFrame,
     cluster_labels: np.ndarray,
+    global_factor_values: pd.DataFrame,
     global_x_scaled: np.ndarray,
     global_result: FactorModelResult,
     config: Config,
@@ -338,6 +390,7 @@ def save_factor_model_comparison(
     comparison, cluster_loadings = build_factor_model_comparison(
         df,
         cluster_labels,
+        global_factor_values,
         global_x_scaled,
         global_result,
         config,
@@ -355,6 +408,7 @@ def save_factor_model_comparison(
 
 def save_all_factor_outputs(
     df: pd.DataFrame,
+    factor_values: pd.DataFrame,
     x_scaled: np.ndarray,
     cluster_labels: np.ndarray,
     result: FactorModelResult,
@@ -364,9 +418,11 @@ def save_all_factor_outputs(
     save_factor_communalities(result, config)
     save_factor_scores(df, result, config)
     save_factor_heatmap(loading_table, config)
+    save_factor_scree_plot(x_scaled, config)
     return save_factor_model_comparison(
         df,
         cluster_labels,
+        factor_values,
         x_scaled,
         result,
         config,
