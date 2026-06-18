@@ -4,6 +4,7 @@ from collections.abc import Sequence
 
 import numpy as np
 import pandas as pd
+from scipy.stats import yeojohnson
 from sklearn.preprocessing import StandardScaler
 
 
@@ -40,22 +41,20 @@ def fill_missing_with_feature_medians(values: pd.DataFrame) -> pd.DataFrame:
     return values.fillna(medians).astype(float)
 
 
-def log_transform_service_employment(values: pd.DataFrame) -> pd.DataFrame:
-    transformed = values.copy()
-    feature = "services_value_added_per_worker_constant_2015_usd"
-    if feature not in transformed.columns:
-        return transformed
-    min_value = transformed[feature].min()
-    if min_value <= -1:
-        raise ValueError(f"Cannot log1p {feature} because it contains values <= -1")
-    transformed[feature] = np.log1p(transformed[feature])
-    return transformed
-
-
 def winsorize_extreme_values(values: pd.DataFrame) -> pd.DataFrame:
     lower = values.quantile(0.01)
     upper = values.quantile(0.99)
     return values.clip(lower=lower, upper=upper, axis=1)
+
+
+def normalize_features_with_yeo_johnson(values: pd.DataFrame) -> pd.DataFrame:
+    transformed = values.copy()
+    for feature in transformed.columns:
+        feature_values = transformed[feature].to_numpy(dtype=float)
+        if np.ptp(feature_values) == 0:
+            continue
+        transformed[feature] = yeojohnson(feature_values)[0]
+    return transformed
 
 
 def standardize_features(values: pd.DataFrame) -> np.ndarray:
@@ -68,11 +67,11 @@ def prepare_feature_matrix(
     df: pd.DataFrame,
     feature_names: Sequence[str],
 ) -> tuple[pd.DataFrame, np.ndarray]:
-    winsorized = (
+    transformed = (
         select_numeric_features(df, feature_names)
         .pipe(fill_missing_with_feature_medians)
-        .pipe(log_transform_service_employment)
         .pipe(winsorize_extreme_values)
+        .pipe(normalize_features_with_yeo_johnson)
     )
-    scaled = standardize_features(winsorized)
-    return winsorized, scaled
+    scaled = standardize_features(transformed)
+    return transformed, scaled

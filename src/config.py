@@ -9,7 +9,7 @@ from datatypes import Config
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT_DIR / "data" / "WDI_2022_descriptive.csv"
+DATA_PATH = ROOT_DIR / "data" / "WDI_2022_analysis.csv"
 
 ID_COLUMNS = (
     "country_name",
