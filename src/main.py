@@ -16,7 +16,12 @@ from model_selection import (
     run_parallel_analysis_sweep,
 )
 from experiments import run_config_sweep
-from helpers import save_all_cluster_outputs, save_all_factor_outputs
+from helpers import (
+    save_all_cluster_outputs,
+    save_all_factor_outputs,
+    print_best,
+    rank_configs,
+)
 
 
 def main(config: Config = CONFIG) -> None:
@@ -77,36 +82,28 @@ def main(config: Config = CONFIG) -> None:
 
     config_sweep = run_config_sweep(df, EXPERIMENT_CONFIGS)
     config_sweep.to_csv(config.out_dir / "config_sweep.csv", index=False)
-    ranked_config_sweep = config_sweep.loc[
-        (config_sweep["status"] == "ok")
-        & (config_sweep["clustered_status"] == "ok")
-        & config_sweep["clustered_regularized_bic"].notna()
-    ].sort_values(
-        [
-            "clustered_regularized_bic",
-            "clusters_below_efa_rule",
-            "clustered_covariance_reconstruction_rmse",
-        ],
-        ascending=[True, True, True],
+
+    global_pa_factors = int(
+        parallel_analysis_summary.loc[
+            parallel_analysis_summary["scope"] == "global",
+            "suggested_factors",
+        ].iloc[0]
     )
 
-    ranked_config_sweep.to_csv(
-        config.out_dir / "config_sweep_ranked_by_bic.csv",
+    ranked = rank_configs(config_sweep)
+    ranked.to_csv(config.out_dir / "config_sweep_ranked_by_bic.csv", index=False)
+
+    admissible = rank_configs(config_sweep, max_factors=global_pa_factors)
+    admissible.to_csv(
+        config.out_dir / "config_sweep_ranked_by_bic_admissible.csv",
         index=False,
     )
 
-    best_bic = ranked_config_sweep.iloc[0]
+    best_unconstrained = ranked.iloc[0]
+    best_admissible = admissible.iloc[0]
 
-    print("Best clustered BIC specification:")
-    print(f"  experiment_id: {best_bic['experiment_id']}")
-    print(f"  clustering features: {best_bic['clustering_features']}")
-    print(f"  n_clusters: {best_bic['n_clusters']}")
-    print(f"  n_factors: {best_bic['n_factors']}")
-    print(f"  clustered BIC: {best_bic['clustered_regularized_bic']:.2f}")
-    print(
-        "  clustered - global BIC: "
-        f"{best_bic['clustered_minus_global_regularized_bic']:.2f}"
-    )
+    print_best("Best unconstrained clustered BIC specification:", best_unconstrained)
+    print_best("Best admissible clustered BIC specification:", best_admissible)
 
     print(f"Rows: {len(df)}")
     print(f"Clustering features: {raw_cluster_features.shape[1]}")
@@ -121,10 +118,7 @@ def main(config: Config = CONFIG) -> None:
         "Clustered EFA weighted RMSE: "
         f"{clustered_metrics['covariance_reconstruction_rmse']:.4f}"
     )
-    global_pa_factors = parallel_analysis_summary.loc[
-        parallel_analysis_summary["scope"] == "global",
-        "suggested_factors",
-    ].iloc[0]
+
     print(f"Global PA suggested factors: {global_pa_factors}")
     print(
         "PA clustering specifications: "

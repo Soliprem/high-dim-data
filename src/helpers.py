@@ -421,3 +421,43 @@ def save_all_factor_outputs(
         result,
         config,
     )
+
+def rank_configs(
+    config_sweep: pd.DataFrame,
+    *,
+    max_factors: int | None = None,
+) -> pd.DataFrame:
+    mask = (
+        (config_sweep["status"] == "ok")
+        & (config_sweep["clustered_status"] == "ok")
+        & config_sweep["clustered_regularized_bic"].notna()
+    )
+
+    if max_factors is not None:
+        mask &= (
+            (config_sweep["clustered_unstable_models"] == 0)
+            & (config_sweep["n_factors"] <= max_factors)
+            & (config_sweep["n_factors"] <= config_sweep["smallest_cluster"])
+        )
+
+    return config_sweep.loc[mask].sort_values(
+        [
+            "clustered_regularized_bic",
+            "clustered_unstable_models",
+            "clustered_covariance_reconstruction_rmse",
+            "clustered_mean_cross_loading_gap",
+        ],
+        ascending=[True, True, True, False],
+    )
+
+def print_best(label: str, row: pd.Series) -> None:
+    print(label)
+    print(f"  experiment_id: {row['experiment_id']}")
+    print(f"  clustering features: {row['clustering_features']}")
+    print(f"  n_clusters: {row['n_clusters']}")
+    print(f"  n_factors: {row['n_factors']}")
+    print(f"  clustered BIC: {row['clustered_regularized_bic']:.2f}")
+    print(
+        "  clustered - global BIC: "
+        f"{row['clustered_minus_global_regularized_bic']:.2f}"
+    )
