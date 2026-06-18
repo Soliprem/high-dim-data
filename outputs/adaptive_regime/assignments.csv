@@ -1,218 +1,218 @@
 country_name,iso3_country_code,world_bank_region,world_bank_income_group,observation_year,cluster,n_factors
-Afghanistan,AFG,South Asia,Low income,2022,1,6
-Albania,ALB,Europe & Central Asia,Upper middle income,2022,3,9
-Algeria,DZA,Middle East & North Africa,Upper middle income,2022,3,9
-American Samoa,ASM,East Asia & Pacific,High income,2022,3,9
-Andorra,AND,Europe & Central Asia,High income,2022,3,9
-Angola,AGO,Sub-Saharan Africa,Lower middle income,2022,3,9
-Antigua and Barbuda,ATG,Latin America & Caribbean,High income,2022,3,9
-Argentina,ARG,Latin America & Caribbean,Upper middle income,2022,3,9
-Armenia,ARM,Europe & Central Asia,Upper middle income,2022,3,9
-Aruba,ABW,Latin America & Caribbean,High income,2022,3,9
+Afghanistan,AFG,South Asia,Low income,2022,1,5
+Albania,ALB,Europe & Central Asia,Upper middle income,2022,3,7
+Algeria,DZA,Middle East & North Africa,Upper middle income,2022,3,7
+American Samoa,ASM,East Asia & Pacific,High income,2022,3,7
+Andorra,AND,Europe & Central Asia,High income,2022,3,7
+Angola,AGO,Sub-Saharan Africa,Lower middle income,2022,3,7
+Antigua and Barbuda,ATG,Latin America & Caribbean,High income,2022,3,7
+Argentina,ARG,Latin America & Caribbean,Upper middle income,2022,3,7
+Armenia,ARM,Europe & Central Asia,Upper middle income,2022,3,7
+Aruba,ABW,Latin America & Caribbean,High income,2022,3,7
 Australia,AUS,East Asia & Pacific,High income,2022,2,6
 Austria,AUT,Europe & Central Asia,High income,2022,2,6
-Azerbaijan,AZE,Europe & Central Asia,Upper middle income,2022,3,9
+Azerbaijan,AZE,Europe & Central Asia,Upper middle income,2022,3,7
 "Bahamas, The",BHS,Latin America & Caribbean,High income,2022,2,6
 Bahrain,BHR,Middle East & North Africa,High income,2022,2,6
-Bangladesh,BGD,South Asia,Lower middle income,2022,1,6
+Bangladesh,BGD,South Asia,Lower middle income,2022,1,5
 Barbados,BRB,Latin America & Caribbean,High income,2022,2,6
-Belarus,BLR,Europe & Central Asia,Upper middle income,2022,3,9
+Belarus,BLR,Europe & Central Asia,Upper middle income,2022,3,7
 Belgium,BEL,Europe & Central Asia,High income,2022,2,6
-Belize,BLZ,Latin America & Caribbean,Upper middle income,2022,3,9
-Benin,BEN,Sub-Saharan Africa,Lower middle income,2022,1,6
-Bermuda,BMU,North America,High income,2022,3,9
-Bhutan,BTN,South Asia,Lower middle income,2022,3,9
-Bolivia,BOL,Latin America & Caribbean,Lower middle income,2022,1,6
-Bosnia and Herzegovina,BIH,Europe & Central Asia,Upper middle income,2022,3,9
-Botswana,BWA,Sub-Saharan Africa,Upper middle income,2022,3,9
-Brazil,BRA,Latin America & Caribbean,Upper middle income,2022,3,9
-British Virgin Islands,VGB,Latin America & Caribbean,High income,2022,3,9
+Belize,BLZ,Latin America & Caribbean,Upper middle income,2022,3,7
+Benin,BEN,Sub-Saharan Africa,Lower middle income,2022,1,5
+Bermuda,BMU,North America,High income,2022,3,7
+Bhutan,BTN,South Asia,Lower middle income,2022,3,7
+Bolivia,BOL,Latin America & Caribbean,Lower middle income,2022,1,5
+Bosnia and Herzegovina,BIH,Europe & Central Asia,Upper middle income,2022,3,7
+Botswana,BWA,Sub-Saharan Africa,Upper middle income,2022,3,7
+Brazil,BRA,Latin America & Caribbean,Upper middle income,2022,3,7
+British Virgin Islands,VGB,Latin America & Caribbean,High income,2022,3,7
 Brunei Darussalam,BRN,East Asia & Pacific,High income,2022,2,6
-Bulgaria,BGR,Europe & Central Asia,High income,2022,3,9
-Burkina Faso,BFA,Sub-Saharan Africa,Low income,2022,1,6
-Burundi,BDI,Sub-Saharan Africa,Low income,2022,1,6
-Cabo Verde,CPV,Sub-Saharan Africa,Lower middle income,2022,3,9
-Cambodia,KHM,East Asia & Pacific,Lower middle income,2022,1,6
-Cameroon,CMR,Sub-Saharan Africa,Lower middle income,2022,1,6
+Bulgaria,BGR,Europe & Central Asia,High income,2022,3,7
+Burkina Faso,BFA,Sub-Saharan Africa,Low income,2022,1,5
+Burundi,BDI,Sub-Saharan Africa,Low income,2022,1,5
+Cabo Verde,CPV,Sub-Saharan Africa,Lower middle income,2022,3,7
+Cambodia,KHM,East Asia & Pacific,Lower middle income,2022,1,5
+Cameroon,CMR,Sub-Saharan Africa,Lower middle income,2022,1,5
 Canada,CAN,North America,High income,2022,2,6
-Cayman Islands,CYM,Latin America & Caribbean,High income,2022,3,9
-Central African Republic,CAF,Sub-Saharan Africa,Low income,2022,1,6
-Chad,TCD,Sub-Saharan Africa,Low income,2022,1,6
-Channel Islands,CHI,Europe & Central Asia,High income,2022,3,9
-Chile,CHL,Latin America & Caribbean,High income,2022,3,9
-China,CHN,East Asia & Pacific,Upper middle income,2022,3,9
-Colombia,COL,Latin America & Caribbean,Upper middle income,2022,3,9
-Comoros,COM,Sub-Saharan Africa,Lower middle income,2022,1,6
-"Congo, Dem. Rep.",COD,Sub-Saharan Africa,Low income,2022,1,6
-"Congo, Rep.",COG,Sub-Saharan Africa,Lower middle income,2022,1,6
+Cayman Islands,CYM,Latin America & Caribbean,High income,2022,3,7
+Central African Republic,CAF,Sub-Saharan Africa,Low income,2022,1,5
+Chad,TCD,Sub-Saharan Africa,Low income,2022,1,5
+Channel Islands,CHI,Europe & Central Asia,High income,2022,3,7
+Chile,CHL,Latin America & Caribbean,High income,2022,3,7
+China,CHN,East Asia & Pacific,Upper middle income,2022,3,7
+Colombia,COL,Latin America & Caribbean,Upper middle income,2022,3,7
+Comoros,COM,Sub-Saharan Africa,Lower middle income,2022,1,5
+"Congo, Dem. Rep.",COD,Sub-Saharan Africa,Low income,2022,1,5
+"Congo, Rep.",COG,Sub-Saharan Africa,Lower middle income,2022,1,5
 Costa Rica,CRI,Latin America & Caribbean,Upper middle income,2022,2,6
-Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle income,2022,3,9
+Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle income,2022,3,7
 Croatia,HRV,Europe & Central Asia,High income,2022,2,6
-Cuba,CUB,Latin America & Caribbean,Upper middle income,2022,3,9
-Curacao,CUW,Latin America & Caribbean,High income,2022,3,9
+Cuba,CUB,Latin America & Caribbean,Upper middle income,2022,3,7
+Curacao,CUW,Latin America & Caribbean,High income,2022,3,7
 Cyprus,CYP,Europe & Central Asia,High income,2022,2,6
 Czechia,CZE,Europe & Central Asia,High income,2022,2,6
 Denmark,DNK,Europe & Central Asia,High income,2022,2,6
-Djibouti,DJI,Middle East & North Africa,Lower middle income,2022,3,9
-Dominica,DMA,Latin America & Caribbean,Upper middle income,2022,3,9
-Dominican Republic,DOM,Latin America & Caribbean,Upper middle income,2022,3,9
-Ecuador,ECU,Latin America & Caribbean,Upper middle income,2022,3,9
-"Egypt, Arab Rep.",EGY,Middle East & North Africa,Lower middle income,2022,3,9
-El Salvador,SLV,Latin America & Caribbean,Upper middle income,2022,3,9
-Equatorial Guinea,GNQ,Sub-Saharan Africa,Upper middle income,2022,3,9
-Eritrea,ERI,Sub-Saharan Africa,Low income,2022,3,9
+Djibouti,DJI,Middle East & North Africa,Lower middle income,2022,3,7
+Dominica,DMA,Latin America & Caribbean,Upper middle income,2022,3,7
+Dominican Republic,DOM,Latin America & Caribbean,Upper middle income,2022,3,7
+Ecuador,ECU,Latin America & Caribbean,Upper middle income,2022,3,7
+"Egypt, Arab Rep.",EGY,Middle East & North Africa,Lower middle income,2022,3,7
+El Salvador,SLV,Latin America & Caribbean,Upper middle income,2022,3,7
+Equatorial Guinea,GNQ,Sub-Saharan Africa,Upper middle income,2022,3,7
+Eritrea,ERI,Sub-Saharan Africa,Low income,2022,3,7
 Estonia,EST,Europe & Central Asia,High income,2022,2,6
-Eswatini,SWZ,Sub-Saharan Africa,Lower middle income,2022,3,9
-Ethiopia,ETH,Sub-Saharan Africa,Low income,2022,1,6
-Faroe Islands,FRO,Europe & Central Asia,High income,2022,3,9
-Fiji,FJI,East Asia & Pacific,Upper middle income,2022,3,9
+Eswatini,SWZ,Sub-Saharan Africa,Lower middle income,2022,3,7
+Ethiopia,ETH,Sub-Saharan Africa,Low income,2022,1,5
+Faroe Islands,FRO,Europe & Central Asia,High income,2022,3,7
+Fiji,FJI,East Asia & Pacific,Upper middle income,2022,3,7
 Finland,FIN,Europe & Central Asia,High income,2022,2,6
 France,FRA,Europe & Central Asia,High income,2022,2,6
-French Polynesia,PYF,East Asia & Pacific,High income,2022,3,9
-Gabon,GAB,Sub-Saharan Africa,Upper middle income,2022,3,9
-"Gambia, The",GMB,Sub-Saharan Africa,Low income,2022,1,6
-Georgia,GEO,Europe & Central Asia,Upper middle income,2022,3,9
+French Polynesia,PYF,East Asia & Pacific,High income,2022,3,7
+Gabon,GAB,Sub-Saharan Africa,Upper middle income,2022,3,7
+"Gambia, The",GMB,Sub-Saharan Africa,Low income,2022,1,5
+Georgia,GEO,Europe & Central Asia,Upper middle income,2022,3,7
 Germany,DEU,Europe & Central Asia,High income,2022,2,6
-Ghana,GHA,Sub-Saharan Africa,Lower middle income,2022,1,6
-Gibraltar,GIB,Europe & Central Asia,High income,2022,3,9
+Ghana,GHA,Sub-Saharan Africa,Lower middle income,2022,1,5
+Gibraltar,GIB,Europe & Central Asia,High income,2022,3,7
 Greece,GRC,Europe & Central Asia,High income,2022,2,6
-Greenland,GRL,Europe & Central Asia,High income,2022,3,9
-Grenada,GRD,Latin America & Caribbean,Upper middle income,2022,3,9
-Guam,GUM,East Asia & Pacific,High income,2022,3,9
-Guatemala,GTM,Latin America & Caribbean,Upper middle income,2022,3,9
-Guinea,GIN,Sub-Saharan Africa,Lower middle income,2022,1,6
-Guinea-Bissau,GNB,Sub-Saharan Africa,Low income,2022,1,6
-Guyana,GUY,Latin America & Caribbean,High income,2022,3,9
-Haiti,HTI,Latin America & Caribbean,Lower middle income,2022,1,6
-Honduras,HND,Latin America & Caribbean,Lower middle income,2022,3,9
+Greenland,GRL,Europe & Central Asia,High income,2022,3,7
+Grenada,GRD,Latin America & Caribbean,Upper middle income,2022,3,7
+Guam,GUM,East Asia & Pacific,High income,2022,3,7
+Guatemala,GTM,Latin America & Caribbean,Upper middle income,2022,3,7
+Guinea,GIN,Sub-Saharan Africa,Lower middle income,2022,1,5
+Guinea-Bissau,GNB,Sub-Saharan Africa,Low income,2022,1,5
+Guyana,GUY,Latin America & Caribbean,High income,2022,3,7
+Haiti,HTI,Latin America & Caribbean,Lower middle income,2022,1,5
+Honduras,HND,Latin America & Caribbean,Lower middle income,2022,3,7
 "Hong Kong SAR, China",HKG,East Asia & Pacific,High income,2022,2,6
 Hungary,HUN,Europe & Central Asia,High income,2022,2,6
 Iceland,ISL,Europe & Central Asia,High income,2022,2,6
-India,IND,South Asia,Lower middle income,2022,3,9
-Indonesia,IDN,East Asia & Pacific,Upper middle income,2022,3,9
-"Iran, Islamic Rep.",IRN,Middle East & North Africa,Upper middle income,2022,3,9
-Iraq,IRQ,Middle East & North Africa,Upper middle income,2022,3,9
+India,IND,South Asia,Lower middle income,2022,3,7
+Indonesia,IDN,East Asia & Pacific,Upper middle income,2022,3,7
+"Iran, Islamic Rep.",IRN,Middle East & North Africa,Upper middle income,2022,3,7
+Iraq,IRQ,Middle East & North Africa,Upper middle income,2022,3,7
 Ireland,IRL,Europe & Central Asia,High income,2022,2,6
-Isle of Man,IMN,Europe & Central Asia,High income,2022,3,9
+Isle of Man,IMN,Europe & Central Asia,High income,2022,3,7
 Israel,ISR,Middle East & North Africa,High income,2022,2,6
 Italy,ITA,Europe & Central Asia,High income,2022,2,6
-Jamaica,JAM,Latin America & Caribbean,Upper middle income,2022,3,9
+Jamaica,JAM,Latin America & Caribbean,Upper middle income,2022,3,7
 Japan,JPN,East Asia & Pacific,High income,2022,2,6
-Jordan,JOR,Middle East & North Africa,Lower middle income,2022,3,9
-Kazakhstan,KAZ,Europe & Central Asia,Upper middle income,2022,3,9
-Kenya,KEN,Sub-Saharan Africa,Lower middle income,2022,1,6
-Kiribati,KIR,East Asia & Pacific,Lower middle income,2022,3,9
-"Korea, Dem. People's Rep.",PRK,East Asia & Pacific,Low income,2022,3,9
+Jordan,JOR,Middle East & North Africa,Lower middle income,2022,3,7
+Kazakhstan,KAZ,Europe & Central Asia,Upper middle income,2022,3,7
+Kenya,KEN,Sub-Saharan Africa,Lower middle income,2022,1,5
+Kiribati,KIR,East Asia & Pacific,Lower middle income,2022,3,7
+"Korea, Dem. People's Rep.",PRK,East Asia & Pacific,Low income,2022,3,7
 "Korea, Rep.",KOR,East Asia & Pacific,High income,2022,2,6
-Kosovo,XKX,Europe & Central Asia,Upper middle income,2022,3,9
+Kosovo,XKX,Europe & Central Asia,Upper middle income,2022,3,7
 Kuwait,KWT,Middle East & North Africa,High income,2022,2,6
-Kyrgyz Republic,KGZ,Europe & Central Asia,Lower middle income,2022,1,6
-Lao PDR,LAO,East Asia & Pacific,Lower middle income,2022,3,9
+Kyrgyz Republic,KGZ,Europe & Central Asia,Lower middle income,2022,1,5
+Lao PDR,LAO,East Asia & Pacific,Lower middle income,2022,3,7
 Latvia,LVA,Europe & Central Asia,High income,2022,2,6
-Lebanon,LBN,Middle East & North Africa,Lower middle income,2022,3,9
-Lesotho,LSO,Sub-Saharan Africa,Lower middle income,2022,1,6
-Liberia,LBR,Sub-Saharan Africa,Low income,2022,1,6
-Libya,LBY,Middle East & North Africa,Upper middle income,2022,3,9
-Liechtenstein,LIE,Europe & Central Asia,High income,2022,3,9
+Lebanon,LBN,Middle East & North Africa,Lower middle income,2022,3,7
+Lesotho,LSO,Sub-Saharan Africa,Lower middle income,2022,1,5
+Liberia,LBR,Sub-Saharan Africa,Low income,2022,1,5
+Libya,LBY,Middle East & North Africa,Upper middle income,2022,3,7
+Liechtenstein,LIE,Europe & Central Asia,High income,2022,3,7
 Lithuania,LTU,Europe & Central Asia,High income,2022,2,6
 Luxembourg,LUX,Europe & Central Asia,High income,2022,2,6
 "Macao SAR, China",MAC,East Asia & Pacific,High income,2022,2,6
-Madagascar,MDG,Sub-Saharan Africa,Low income,2022,1,6
-Malawi,MWI,Sub-Saharan Africa,Low income,2022,1,6
-Malaysia,MYS,East Asia & Pacific,Upper middle income,2022,3,9
-Maldives,MDV,South Asia,Upper middle income,2022,3,9
-Mali,MLI,Sub-Saharan Africa,Low income,2022,1,6
+Madagascar,MDG,Sub-Saharan Africa,Low income,2022,1,5
+Malawi,MWI,Sub-Saharan Africa,Low income,2022,1,5
+Malaysia,MYS,East Asia & Pacific,Upper middle income,2022,3,7
+Maldives,MDV,South Asia,Upper middle income,2022,3,7
+Mali,MLI,Sub-Saharan Africa,Low income,2022,1,5
 Malta,MLT,Middle East & North Africa,High income,2022,2,6
-Marshall Islands,MHL,East Asia & Pacific,Upper middle income,2022,3,9
-Mauritania,MRT,Sub-Saharan Africa,Lower middle income,2022,3,9
-Mauritius,MUS,Sub-Saharan Africa,Upper middle income,2022,3,9
-Mexico,MEX,Latin America & Caribbean,Upper middle income,2022,3,9
-"Micronesia, Fed. Sts.",FSM,East Asia & Pacific,Lower middle income,2022,3,9
-Moldova,MDA,Europe & Central Asia,Upper middle income,2022,3,9
-Monaco,MCO,Europe & Central Asia,High income,2022,3,9
-Mongolia,MNG,East Asia & Pacific,Upper middle income,2022,3,9
-Montenegro,MNE,Europe & Central Asia,Upper middle income,2022,3,9
-Morocco,MAR,Middle East & North Africa,Lower middle income,2022,3,9
-Mozambique,MOZ,Sub-Saharan Africa,Low income,2022,1,6
-Myanmar,MMR,East Asia & Pacific,Lower middle income,2022,1,6
-Namibia,NAM,Sub-Saharan Africa,Upper middle income,2022,3,9
-Nauru,NRU,East Asia & Pacific,High income,2022,3,9
-Nepal,NPL,South Asia,Lower middle income,2022,1,6
+Marshall Islands,MHL,East Asia & Pacific,Upper middle income,2022,3,7
+Mauritania,MRT,Sub-Saharan Africa,Lower middle income,2022,3,7
+Mauritius,MUS,Sub-Saharan Africa,Upper middle income,2022,3,7
+Mexico,MEX,Latin America & Caribbean,Upper middle income,2022,3,7
+"Micronesia, Fed. Sts.",FSM,East Asia & Pacific,Lower middle income,2022,3,7
+Moldova,MDA,Europe & Central Asia,Upper middle income,2022,3,7
+Monaco,MCO,Europe & Central Asia,High income,2022,3,7
+Mongolia,MNG,East Asia & Pacific,Upper middle income,2022,3,7
+Montenegro,MNE,Europe & Central Asia,Upper middle income,2022,3,7
+Morocco,MAR,Middle East & North Africa,Lower middle income,2022,3,7
+Mozambique,MOZ,Sub-Saharan Africa,Low income,2022,1,5
+Myanmar,MMR,East Asia & Pacific,Lower middle income,2022,1,5
+Namibia,NAM,Sub-Saharan Africa,Upper middle income,2022,3,7
+Nauru,NRU,East Asia & Pacific,High income,2022,3,7
+Nepal,NPL,South Asia,Lower middle income,2022,1,5
 Netherlands,NLD,Europe & Central Asia,High income,2022,2,6
-New Caledonia,NCL,East Asia & Pacific,High income,2022,3,9
+New Caledonia,NCL,East Asia & Pacific,High income,2022,3,7
 New Zealand,NZL,East Asia & Pacific,High income,2022,2,6
-Nicaragua,NIC,Latin America & Caribbean,Lower middle income,2022,1,6
-Niger,NER,Sub-Saharan Africa,Low income,2022,1,6
-Nigeria,NGA,Sub-Saharan Africa,Lower middle income,2022,1,6
-North Macedonia,MKD,Europe & Central Asia,Upper middle income,2022,3,9
-Northern Mariana Islands,MNP,East Asia & Pacific,High income,2022,3,9
+Nicaragua,NIC,Latin America & Caribbean,Lower middle income,2022,1,5
+Niger,NER,Sub-Saharan Africa,Low income,2022,1,5
+Nigeria,NGA,Sub-Saharan Africa,Lower middle income,2022,1,5
+North Macedonia,MKD,Europe & Central Asia,Upper middle income,2022,3,7
+Northern Mariana Islands,MNP,East Asia & Pacific,High income,2022,3,7
 Norway,NOR,Europe & Central Asia,High income,2022,2,6
 Oman,OMN,Middle East & North Africa,High income,2022,2,6
-Pakistan,PAK,South Asia,Lower middle income,2022,3,9
-Palau,PLW,East Asia & Pacific,High income,2022,3,9
+Pakistan,PAK,South Asia,Lower middle income,2022,3,7
+Palau,PLW,East Asia & Pacific,High income,2022,3,7
 Panama,PAN,Latin America & Caribbean,High income,2022,2,6
-Papua New Guinea,PNG,East Asia & Pacific,Lower middle income,2022,1,6
-Paraguay,PRY,Latin America & Caribbean,Upper middle income,2022,3,9
-Peru,PER,Latin America & Caribbean,Upper middle income,2022,3,9
-Philippines,PHL,East Asia & Pacific,Lower middle income,2022,3,9
+Papua New Guinea,PNG,East Asia & Pacific,Lower middle income,2022,1,5
+Paraguay,PRY,Latin America & Caribbean,Upper middle income,2022,3,7
+Peru,PER,Latin America & Caribbean,Upper middle income,2022,3,7
+Philippines,PHL,East Asia & Pacific,Lower middle income,2022,3,7
 Poland,POL,Europe & Central Asia,High income,2022,2,6
 Portugal,PRT,Europe & Central Asia,High income,2022,2,6
 Qatar,QAT,Middle East & North Africa,High income,2022,2,6
 Romania,ROU,Europe & Central Asia,High income,2022,2,6
-Russian Federation,RUS,Europe & Central Asia,High income,2022,3,9
-Rwanda,RWA,Sub-Saharan Africa,Low income,2022,1,6
-Samoa,WSM,East Asia & Pacific,Lower middle income,2022,3,9
-San Marino,SMR,Europe & Central Asia,High income,2022,3,9
-Sao Tome and Principe,STP,Sub-Saharan Africa,Lower middle income,2022,3,9
+Russian Federation,RUS,Europe & Central Asia,High income,2022,3,7
+Rwanda,RWA,Sub-Saharan Africa,Low income,2022,1,5
+Samoa,WSM,East Asia & Pacific,Lower middle income,2022,3,7
+San Marino,SMR,Europe & Central Asia,High income,2022,3,7
+Sao Tome and Principe,STP,Sub-Saharan Africa,Lower middle income,2022,3,7
 Saudi Arabia,SAU,Middle East & North Africa,High income,2022,2,6
-Senegal,SEN,Sub-Saharan Africa,Lower middle income,2022,1,6
-Serbia,SRB,Europe & Central Asia,Upper middle income,2022,3,9
-Seychelles,SYC,Sub-Saharan Africa,High income,2022,3,9
-Sierra Leone,SLE,Sub-Saharan Africa,Low income,2022,1,6
+Senegal,SEN,Sub-Saharan Africa,Lower middle income,2022,1,5
+Serbia,SRB,Europe & Central Asia,Upper middle income,2022,3,7
+Seychelles,SYC,Sub-Saharan Africa,High income,2022,3,7
+Sierra Leone,SLE,Sub-Saharan Africa,Low income,2022,1,5
 Singapore,SGP,East Asia & Pacific,High income,2022,2,6
-Sint Maarten (Dutch part),SXM,Latin America & Caribbean,High income,2022,3,9
+Sint Maarten (Dutch part),SXM,Latin America & Caribbean,High income,2022,3,7
 Slovak Republic,SVK,Europe & Central Asia,High income,2022,2,6
 Slovenia,SVN,Europe & Central Asia,High income,2022,2,6
-Solomon Islands,SLB,East Asia & Pacific,Lower middle income,2022,1,6
-South Africa,ZAF,Sub-Saharan Africa,Upper middle income,2022,3,9
-South Sudan,SSD,Sub-Saharan Africa,Low income,2022,3,9
+Solomon Islands,SLB,East Asia & Pacific,Lower middle income,2022,1,5
+South Africa,ZAF,Sub-Saharan Africa,Upper middle income,2022,3,7
+South Sudan,SSD,Sub-Saharan Africa,Low income,2022,3,7
 Spain,ESP,Europe & Central Asia,High income,2022,2,6
-Sri Lanka,LKA,South Asia,Lower middle income,2022,3,9
-St. Kitts and Nevis,KNA,Latin America & Caribbean,High income,2022,3,9
-St. Lucia,LCA,Latin America & Caribbean,Upper middle income,2022,3,9
-St. Martin (French part),MAF,Latin America & Caribbean,High income,2022,3,9
-St. Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle income,2022,3,9
-Sudan,SDN,Sub-Saharan Africa,Low income,2022,1,6
-Suriname,SUR,Latin America & Caribbean,Upper middle income,2022,3,9
+Sri Lanka,LKA,South Asia,Lower middle income,2022,3,7
+St. Kitts and Nevis,KNA,Latin America & Caribbean,High income,2022,3,7
+St. Lucia,LCA,Latin America & Caribbean,Upper middle income,2022,3,7
+St. Martin (French part),MAF,Latin America & Caribbean,High income,2022,3,7
+St. Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle income,2022,3,7
+Sudan,SDN,Sub-Saharan Africa,Low income,2022,1,5
+Suriname,SUR,Latin America & Caribbean,Upper middle income,2022,3,7
 Sweden,SWE,Europe & Central Asia,High income,2022,2,6
 Switzerland,CHE,Europe & Central Asia,High income,2022,2,6
-Syrian Arab Republic,SYR,Middle East & North Africa,Low income,2022,1,6
-Tajikistan,TJK,Europe & Central Asia,Lower middle income,2022,1,6
-Tanzania,TZA,Sub-Saharan Africa,Lower middle income,2022,1,6
-Thailand,THA,East Asia & Pacific,Upper middle income,2022,3,9
-Timor-Leste,TLS,East Asia & Pacific,Lower middle income,2022,1,6
-Togo,TGO,Sub-Saharan Africa,Low income,2022,1,6
-Tonga,TON,East Asia & Pacific,Upper middle income,2022,3,9
+Syrian Arab Republic,SYR,Middle East & North Africa,Low income,2022,1,5
+Tajikistan,TJK,Europe & Central Asia,Lower middle income,2022,1,5
+Tanzania,TZA,Sub-Saharan Africa,Lower middle income,2022,1,5
+Thailand,THA,East Asia & Pacific,Upper middle income,2022,3,7
+Timor-Leste,TLS,East Asia & Pacific,Lower middle income,2022,1,5
+Togo,TGO,Sub-Saharan Africa,Low income,2022,1,5
+Tonga,TON,East Asia & Pacific,Upper middle income,2022,3,7
 Trinidad and Tobago,TTO,Latin America & Caribbean,High income,2022,2,6
-Tunisia,TUN,Middle East & North Africa,Lower middle income,2022,3,9
+Tunisia,TUN,Middle East & North Africa,Lower middle income,2022,3,7
 Turkiye,TUR,Europe & Central Asia,Upper middle income,2022,2,6
-Turkmenistan,TKM,Europe & Central Asia,Upper middle income,2022,3,9
-Turks and Caicos Islands,TCA,Latin America & Caribbean,High income,2022,3,9
-Tuvalu,TUV,East Asia & Pacific,Upper middle income,2022,3,9
-Uganda,UGA,Sub-Saharan Africa,Low income,2022,1,6
-Ukraine,UKR,Europe & Central Asia,Upper middle income,2022,3,9
+Turkmenistan,TKM,Europe & Central Asia,Upper middle income,2022,3,7
+Turks and Caicos Islands,TCA,Latin America & Caribbean,High income,2022,3,7
+Tuvalu,TUV,East Asia & Pacific,Upper middle income,2022,3,7
+Uganda,UGA,Sub-Saharan Africa,Low income,2022,1,5
+Ukraine,UKR,Europe & Central Asia,Upper middle income,2022,3,7
 United Arab Emirates,ARE,Middle East & North Africa,High income,2022,2,6
 United Kingdom,GBR,Europe & Central Asia,High income,2022,2,6
-United States,USA,North America,High income,2022,3,9
+United States,USA,North America,High income,2022,3,7
 Uruguay,URY,Latin America & Caribbean,High income,2022,2,6
-Uzbekistan,UZB,Europe & Central Asia,Lower middle income,2022,3,9
-Vanuatu,VUT,East Asia & Pacific,Lower middle income,2022,3,9
-"Venezuela, RB",VEN,Latin America & Caribbean,Not classified,2022,3,9
-Viet Nam,VNM,East Asia & Pacific,Lower middle income,2022,3,9
-Virgin Islands (U.S.),VIR,Latin America & Caribbean,High income,2022,3,9
-West Bank and Gaza,PSE,Middle East & North Africa,Lower middle income,2022,3,9
-"Yemen, Rep.",YEM,Middle East & North Africa,Low income,2022,3,9
-Zambia,ZMB,Sub-Saharan Africa,Lower middle income,2022,1,6
-Zimbabwe,ZWE,Sub-Saharan Africa,Lower middle income,2022,1,6
-Puerto Rico,PRI,Latin America & Caribbean,High income,2022,3,9
-Somalia,SOM,Sub-Saharan Africa,Low income,2022,3,9
+Uzbekistan,UZB,Europe & Central Asia,Lower middle income,2022,3,7
+Vanuatu,VUT,East Asia & Pacific,Lower middle income,2022,3,7
+"Venezuela, RB",VEN,Latin America & Caribbean,Not classified,2022,3,7
+Viet Nam,VNM,East Asia & Pacific,Lower middle income,2022,3,7
+Virgin Islands (U.S.),VIR,Latin America & Caribbean,High income,2022,3,7
+West Bank and Gaza,PSE,Middle East & North Africa,Lower middle income,2022,3,7
+"Yemen, Rep.",YEM,Middle East & North Africa,Low income,2022,3,7
+Zambia,ZMB,Sub-Saharan Africa,Lower middle income,2022,1,5
+Zimbabwe,ZWE,Sub-Saharan Africa,Lower middle income,2022,1,5
+Puerto Rico,PRI,Latin America & Caribbean,High income,2022,3,7
+Somalia,SOM,Sub-Saharan Africa,Low income,2022,3,7

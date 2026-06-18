@@ -1,218 +1,218 @@
 country_name,iso3_country_code,world_bank_region,world_bank_income_group,observation_year,factor_1,factor_2
-Afghanistan,AFG,South Asia,Low income,2022,-0.13300190759921027,-0.38518898314632466
-Albania,ALB,Europe & Central Asia,Upper middle income,2022,-0.13066896122150062,-0.41154781968805615
-Algeria,DZA,Middle East & North Africa,Upper middle income,2022,-0.130977952172489,-0.24193939747562604
-American Samoa,ASM,East Asia & Pacific,High income,2022,-0.13467028650239435,-0.3835758875412653
-Andorra,AND,Europe & Central Asia,High income,2022,-0.13231942752036724,-0.41036788030719296
-Angola,AGO,Sub-Saharan Africa,Lower middle income,2022,-0.12064846686209413,-0.30610092433676994
-Antigua and Barbuda,ATG,Latin America & Caribbean,High income,2022,-0.13167043328436126,-0.4301639136493692
-Argentina,ARG,Latin America & Caribbean,Upper middle income,2022,-0.13869543086136124,-0.08959697915335753
-Armenia,ARM,Europe & Central Asia,Upper middle income,2022,-0.12297296927389481,-0.4029685684652947
-Aruba,ABW,Latin America & Caribbean,High income,2022,-0.1320686520886925,-0.4228326295276481
-Australia,AUS,East Asia & Pacific,High income,2022,-0.19128565946137463,1.1025956650342565
-Austria,AUT,Europe & Central Asia,High income,2022,-0.17157118472224842,0.5817262389854458
-Azerbaijan,AZE,Europe & Central Asia,Upper middle income,2022,-0.13564177223352783,-0.3182463658713679
-"Bahamas, The",BHS,Latin America & Caribbean,High income,2022,-0.1333752699045224,-0.4183744023775538
-Bahrain,BHR,Middle East & North Africa,High income,2022,-0.1382500695581867,-0.2944198574173454
-Bangladesh,BGD,South Asia,Lower middle income,2022,-0.12214517026365632,-0.18161507333863722
-Barbados,BRB,Latin America & Caribbean,High income,2022,-0.13387468424344784,-0.3684323697870649
-Belarus,BLR,Europe & Central Asia,Upper middle income,2022,-0.13802141503175142,-0.28414405925879144
-Belgium,BEL,Europe & Central Asia,High income,2022,-0.20693942910746965,1.5064410811902078
-Belize,BLZ,Latin America & Caribbean,Upper middle income,2022,-0.1328587294884859,-0.4297677252249109
-Benin,BEN,Sub-Saharan Africa,Lower middle income,2022,-0.12478872981182408,-0.42108025231783053
-Bermuda,BMU,North America,High income,2022,-0.13328127357078742,-0.4222425473035909
-Bhutan,BTN,South Asia,Lower middle income,2022,-0.13268559830140442,-0.4302228200748231
-Bolivia,BOL,Latin America & Caribbean,Lower middle income,2022,-0.13401562401363118,-0.3902350666642439
-Bosnia and Herzegovina,BIH,Europe & Central Asia,Upper middle income,2022,-0.13427629426871251,-0.3910752634137059
-Botswana,BWA,Sub-Saharan Africa,Upper middle income,2022,-0.13364815245397801,-0.40044735151545197
-Brazil,BRA,Latin America & Caribbean,Upper middle income,2022,-0.18237347295518733,0.9110710631056897
-British Virgin Islands,VGB,Latin America & Caribbean,High income,2022,-0.13441753961563307,-0.35518289446689544
-Brunei Darussalam,BRN,East Asia & Pacific,High income,2022,-0.13421786888766343,-0.3901552113750913
-Bulgaria,BGR,Europe & Central Asia,High income,2022,-0.14077515403348262,-0.22046316709284589
-Burkina Faso,BFA,Sub-Saharan Africa,Low income,2022,-0.12158575443075705,-0.4175301003927808
-Burundi,BDI,Sub-Saharan Africa,Low income,2022,-0.13147574979273505,-0.419973392037958
-Cabo Verde,CPV,Sub-Saharan Africa,Lower middle income,2022,-0.13250124880343236,-0.4327647871267625
-Cambodia,KHM,East Asia & Pacific,Lower middle income,2022,0.19402959067669925,-0.3531509396756951
-Cameroon,CMR,Sub-Saharan Africa,Lower middle income,2022,-0.11646614978057987,-0.40841448397231894
-Canada,CAN,North America,High income,2022,-0.23136588726133553,2.1620251071279255
-Cayman Islands,CYM,Latin America & Caribbean,High income,2022,-0.13270081422428062,-0.400774524142494
-Central African Republic,CAF,Sub-Saharan Africa,Low income,2022,-0.13372146654699343,-0.3865063194766688
-Chad,TCD,Sub-Saharan Africa,Low income,2022,-0.12742840454280838,-0.38283765101709155
-Channel Islands,CHI,Europe & Central Asia,High income,2022,-0.13392794702796335,-0.3680522608561639
-Chile,CHL,Latin America & Caribbean,High income,2022,0.07814690042803195,-0.03723596630755746
-China,CHN,East Asia & Pacific,Upper middle income,2022,-0.3504981297504343,5.5279530137642094
-Colombia,COL,Latin America & Caribbean,Upper middle income,2022,0.680271164130785,-0.1640709922468747
-Comoros,COM,Sub-Saharan Africa,Lower middle income,2022,-0.13219045901148782,-0.43688438944808444
-"Congo, Dem. Rep.",COD,Sub-Saharan Africa,Low income,2022,-0.08929741385098679,-0.34059065340046163
-"Congo, Rep.",COG,Sub-Saharan Africa,Lower middle income,2022,-0.12706396737305778,-0.38067608477890064
-Costa Rica,CRI,Latin America & Caribbean,Upper middle income,2022,-0.08765421445816887,-0.3348076809960162
-Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle income,2022,-0.0957827266671396,-0.3731945280900644
-Croatia,HRV,Europe & Central Asia,High income,2022,-0.13854226426874217,-0.28329233952988186
-Cuba,CUB,Latin America & Caribbean,Upper middle income,2022,-0.1350172179716703,-0.3704702838249053
-Curacao,CUW,Latin America & Caribbean,High income,2022,-0.13219476982981276,-0.4118443028613753
-Cyprus,CYP,Europe & Central Asia,High income,2022,-0.1383349285344186,-0.29478045929577523
-Czechia,CZE,Europe & Central Asia,High income,2022,-0.1464519566286181,0.3080857205430281
-Denmark,DNK,Europe & Central Asia,High income,2022,-0.1636984432555481,0.48252445093632773
-Djibouti,DJI,Middle East & North Africa,Lower middle income,2022,-0.13036419146194425,-0.4146593768724679
-Dominica,DMA,Latin America & Caribbean,Upper middle income,2022,-0.13187680137160043,-0.4207636095537991
-Dominican Republic,DOM,Latin America & Caribbean,Upper middle income,2022,-0.1316357454458442,-0.3321333528684685
-Ecuador,ECU,Latin America & Caribbean,Upper middle income,2022,-0.13734297190614506,-0.3116558518089788
-"Egypt, Arab Rep.",EGY,Middle East & North Africa,Lower middle income,2022,-0.13892975987760042,-0.13390625302504702
-El Salvador,SLV,Latin America & Caribbean,Upper middle income,2022,-0.13450363033589935,-0.3894778426367798
-Equatorial Guinea,GNQ,Sub-Saharan Africa,Upper middle income,2022,-0.1265939022269849,-0.37821718394159554
-Eritrea,ERI,Sub-Saharan Africa,Low income,2022,-0.13373680331073648,-0.3688914758000224
-Estonia,EST,Europe & Central Asia,High income,2022,-0.13741712061196382,-0.3154025532123343
-Eswatini,SWZ,Sub-Saharan Africa,Lower middle income,2022,-0.13278283347717976,-0.42584349310345654
-Ethiopia,ETH,Sub-Saharan Africa,Low income,2022,-0.1332246976111661,-0.38112413764766734
-Faroe Islands,FRO,Europe & Central Asia,High income,2022,-0.13348765360411174,-0.38084265163145764
-Fiji,FJI,East Asia & Pacific,Upper middle income,2022,-0.13186635540023572,-0.41571933724126003
-Finland,FIN,Europe & Central Asia,High income,2022,-0.15125206676923048,0.044003845564868235
-France,FRA,Europe & Central Asia,High income,2022,-0.2771777919446887,3.3466674810850603
-French Polynesia,PYF,East Asia & Pacific,High income,2022,-0.13340119486621713,-0.38175898718217643
-Gabon,GAB,Sub-Saharan Africa,Upper middle income,2022,-0.11665793720714812,-0.3810593871867631
-"Gambia, The",GMB,Sub-Saharan Africa,Low income,2022,-0.13244586435271524,-0.43974483268221726
-Georgia,GEO,Europe & Central Asia,Upper middle income,2022,-0.13445215026027943,-0.3879360171695345
-Germany,DEU,Europe & Central Asia,High income,2022,-0.362579189429156,5.592166271507718
-Ghana,GHA,Sub-Saharan Africa,Lower middle income,2022,-0.1356571792315077,-0.3466870811388811
-Gibraltar,GIB,Europe & Central Asia,High income,2022,-0.1337429843185396,-0.36875286992781425
-Greece,GRC,Europe & Central Asia,High income,2022,-0.14813985737937913,-0.03401697611258214
-Greenland,GRL,Europe & Central Asia,High income,2022,-0.1347237568996899,-0.3828672384449352
-Grenada,GRD,Latin America & Caribbean,Upper middle income,2022,-0.1317161547279933,-0.4206110798651365
-Guam,GUM,East Asia & Pacific,High income,2022,-0.13471207549120365,-0.3840989693726495
-Guatemala,GTM,Latin America & Caribbean,Upper middle income,2022,-0.13542986699738171,-0.347072286909475
-Guinea,GIN,Sub-Saharan Africa,Lower middle income,2022,0.03325562342096573,-0.4152545293105121
-Guinea-Bissau,GNB,Sub-Saharan Africa,Low income,2022,-0.13163967487682163,-0.43852451925663255
-Guyana,GUY,Latin America & Caribbean,High income,2022,-0.1325392922618451,-0.393965757743995
-Haiti,HTI,Latin America & Caribbean,Lower middle income,2022,-0.1318745330864964,-0.4308940783973273
-Honduras,HND,Latin America & Caribbean,Lower middle income,2022,-0.1339189674467649,-0.3861106275818192
-"Hong Kong SAR, China",HKG,East Asia & Pacific,High income,2022,-0.21438050217474633,2.1224906488359467
-Hungary,HUN,Europe & Central Asia,High income,2022,0.004085014848618406,0.12168838678492622
-Iceland,ISL,Europe & Central Asia,High income,2022,-0.1294716586437675,-0.38444121667557096
-India,IND,South Asia,Lower middle income,2022,-0.09479434146898948,2.3657074268012814
-Indonesia,IDN,East Asia & Pacific,Upper middle income,2022,8.271308948979785,0.26031048204206403
-"Iran, Islamic Rep.",IRN,Middle East & North Africa,Upper middle income,2022,8.305606363120175,-0.6130985655365668
-Iraq,IRQ,Middle East & North Africa,Upper middle income,2022,0.16200265454807028,-0.12768205730537271
-Ireland,IRL,Europe & Central Asia,High income,2022,-0.2255618494085153,1.9926831643616891
-Isle of Man,IMN,Europe & Central Asia,High income,2022,-0.13393583614665583,-0.36806154305157424
-Israel,ISR,Middle East & North Africa,High income,2022,-0.15281155233975482,0.12318961527614765
-Italy,ITA,Europe & Central Asia,High income,2022,-0.2321670778959866,2.1780932319790005
-Jamaica,JAM,Latin America & Caribbean,Upper middle income,2022,-0.13239934733974018,-0.40158396776509897
-Japan,JPN,East Asia & Pacific,High income,2022,0.09534289570856092,3.18996502852455
-Jordan,JOR,Middle East & North Africa,Lower middle income,2022,-0.13479267516784033,-0.35244582378664696
-Kazakhstan,KAZ,Europe & Central Asia,Upper middle income,2022,-0.10956378700292332,-0.16020136521900485
-Kenya,KEN,Sub-Saharan Africa,Lower middle income,2022,-0.12753048582587653,-0.35882376025468005
-Kiribati,KIR,East Asia & Pacific,Lower middle income,2022,-0.13284482579799256,-0.43779831889560256
-"Korea, Dem. People's Rep.",PRK,East Asia & Pacific,Low income,2022,-0.1337429843185396,-0.36875286992781425
-"Korea, Rep.",KOR,East Asia & Pacific,High income,2022,2.513295871735458,2.234499175904231
-Kosovo,XKX,Europe & Central Asia,Upper middle income,2022,-0.1333558034836478,-0.41738579777812385
-Kuwait,KWT,Middle East & North Africa,High income,2022,-0.1444888551264811,-0.13257460836377305
-Kyrgyz Republic,KGZ,Europe & Central Asia,Lower middle income,2022,-0.13133224605180444,-0.4196792220425362
-Lao PDR,LAO,East Asia & Pacific,Lower middle income,2022,-0.12598051440402475,-0.4024480786890227
-Latvia,LVA,Europe & Central Asia,High income,2022,-0.13687215270782113,-0.32843535484164965
-Lebanon,LBN,Middle East & North Africa,Lower middle income,2022,0.033035136310591504,-0.38637067731358704
-Lesotho,LSO,Sub-Saharan Africa,Lower middle income,2022,-0.13262276757261687,-0.4344230425369261
-Liberia,LBR,Sub-Saharan Africa,Low income,2022,-0.13170701224221731,-0.4175483213633518
-Libya,LBY,Middle East & North Africa,Upper middle income,2022,-0.13655652730958648,-0.3243346572724511
-Liechtenstein,LIE,Europe & Central Asia,High income,2022,-0.13376548953300121,-0.3688700635110682
-Lithuania,LTU,Europe & Central Asia,High income,2022,-0.14081929559412903,-0.22360308390317837
-Luxembourg,LUX,Europe & Central Asia,High income,2022,-0.16933727025464446,0.48613727685134345
-"Macao SAR, China",MAC,East Asia & Pacific,High income,2022,-0.1355425587469628,-0.35510294710627877
-Madagascar,MDG,Sub-Saharan Africa,Low income,2022,-0.08605179634570659,-0.4244670251605875
-Malawi,MWI,Sub-Saharan Africa,Low income,2022,-0.12725112244090614,-0.42775679537576444
-Malaysia,MYS,East Asia & Pacific,Upper middle income,2022,-0.16836521655507708,0.5810549511611453
-Maldives,MDV,South Asia,Upper middle income,2022,-0.1333120296420364,-0.417670097455476
-Mali,MLI,Sub-Saharan Africa,Low income,2022,-0.11970973880849747,-0.41474833169501696
-Malta,MLT,Middle East & North Africa,High income,2022,-0.13779783689062713,-0.31686189901753253
-Marshall Islands,MHL,East Asia & Pacific,Upper middle income,2022,-0.13475771563650144,-0.3846528204969086
-Mauritania,MRT,Sub-Saharan Africa,Lower middle income,2022,-0.13252781322855475,-0.41969483869744456
-Mauritius,MUS,Sub-Saharan Africa,Upper middle income,2022,-0.13332487925779996,-0.39171867156980983
-Mexico,MEX,Latin America & Caribbean,Upper middle income,2022,-0.17903393766102302,1.7436421076700854
-"Micronesia, Fed. Sts.",FSM,East Asia & Pacific,Lower middle income,2022,-0.13349783813882746,-0.3836987067800603
-Moldova,MDA,Europe & Central Asia,Upper middle income,2022,-0.13330179287008673,-0.4084706948137973
-Monaco,MCO,Europe & Central Asia,High income,2022,-0.13391359758943097,-0.3680549425133517
-Mongolia,MNG,East Asia & Pacific,Upper middle income,2022,-0.055720022957720175,-0.40050469159536506
-Montenegro,MNE,Europe & Central Asia,Upper middle income,2022,-0.1332604476391929,-0.42226852210678195
-Morocco,MAR,Middle East & North Africa,Lower middle income,2022,-0.13923522052591303,-0.21748802734562986
-Mozambique,MOZ,Sub-Saharan Africa,Low income,2022,-0.1317200890388641,-0.3948999394066703
-Myanmar,MMR,East Asia & Pacific,Lower middle income,2022,-0.13003561313419873,-0.37012548782859284
-Namibia,NAM,Sub-Saharan Africa,Upper middle income,2022,-0.13329864634839417,-0.41099372020309705
-Nauru,NRU,East Asia & Pacific,High income,2022,-0.13153716775050034,-0.4338495652965935
-Nepal,NPL,South Asia,Lower middle income,2022,-0.13061759061120637,-0.40547166151481434
-Netherlands,NLD,Europe & Central Asia,High income,2022,-0.27337842512251076,3.2089368796829185
-New Caledonia,NCL,East Asia & Pacific,High income,2022,-0.13341452961829448,-0.381116677507825
-New Zealand,NZL,East Asia & Pacific,High income,2022,-0.14158963077655773,-0.20072782301872996
-Nicaragua,NIC,Latin America & Caribbean,Lower middle income,2022,-0.1331932443832441,-0.4081478301696169
-Niger,NER,Sub-Saharan Africa,Low income,2022,-0.12628317526420016,-0.4286178950941893
-Nigeria,NGA,Sub-Saharan Africa,Lower middle income,2022,-0.128484012967138,-0.22321172205909295
-North Macedonia,MKD,Europe & Central Asia,Upper middle income,2022,-0.1327379429131469,-0.39308324130603506
-Northern Mariana Islands,MNP,East Asia & Pacific,High income,2022,-0.134680095844778,-0.38527899749132416
-Norway,NOR,Europe & Central Asia,High income,2022,-0.16137942130301075,0.431702143015626
-Oman,OMN,Middle East & North Africa,High income,2022,-0.14021012175555717,-0.23692336144616757
-Pakistan,PAK,South Asia,Lower middle income,2022,-0.1116033213961009,-0.2364225404787109
-Palau,PLW,East Asia & Pacific,High income,2022,-0.1329125779047022,-0.43656660971370914
-Panama,PAN,Latin America & Caribbean,High income,2022,-0.13730927236318674,-0.31413429451465186
-Papua New Guinea,PNG,East Asia & Pacific,Lower middle income,2022,-0.13298597715396596,-0.38661044206832595
-Paraguay,PRY,Latin America & Caribbean,Upper middle income,2022,0.14143086904023247,-0.391053525770024
-Peru,PER,Latin America & Caribbean,Upper middle income,2022,-0.14153386539674054,-0.1880017669428425
-Philippines,PHL,East Asia & Pacific,Lower middle income,2022,-0.12481185536995554,0.011644369415857201
-Poland,POL,Europe & Central Asia,High income,2022,-0.18416287314243002,1.0144177750418373
-Portugal,PRT,Europe & Central Asia,High income,2022,-0.1499371325179802,0.015041782588370566
-Qatar,QAT,Middle East & North Africa,High income,2022,-0.1470724255382223,-0.027197664219761435
-Romania,ROU,Europe & Central Asia,High income,2022,-0.1497032994965032,0.04077122944883731
-Russian Federation,RUS,Europe & Central Asia,High income,2022,-0.11789736109847648,1.2463765432432974
-Rwanda,RWA,Sub-Saharan Africa,Low income,2022,-0.12112560779116897,-0.4261593007707645
-Samoa,WSM,East Asia & Pacific,Lower middle income,2022,-0.13284564760213788,-0.4372371621659078
-San Marino,SMR,Europe & Central Asia,High income,2022,-0.13340225172289635,-0.42027353514340077
-Sao Tome and Principe,STP,Sub-Saharan Africa,Lower middle income,2022,-0.13190492868574294,-0.4187496442116899
-Saudi Arabia,SAU,Middle East & North Africa,High income,2022,-0.1751611296819398,0.7670351606408279
-Senegal,SEN,Sub-Saharan Africa,Lower middle income,2022,-0.11172078896698437,-0.40070097327147497
-Serbia,SRB,Europe & Central Asia,Upper middle income,2022,-0.12307585955715006,-0.2910619073775319
-Seychelles,SYC,Sub-Saharan Africa,High income,2022,-0.13304772400592965,-0.4273433727434224
-Sierra Leone,SLE,Sub-Saharan Africa,Low income,2022,-0.13256321873617088,-0.4337272379440651
-Singapore,SGP,East Asia & Pacific,High income,2022,-0.248574743611988,2.6105672928494768
-Sint Maarten (Dutch part),SXM,Latin America & Caribbean,High income,2022,-0.13195431152359455,-0.41560615229809
-Slovak Republic,SVK,Europe & Central Asia,High income,2022,-0.1479044249484597,-0.03711840117812436
-Slovenia,SVN,Europe & Central Asia,High income,2022,-0.14006148515233627,-0.24402759193304985
-Solomon Islands,SLB,East Asia & Pacific,Lower middle income,2022,-0.132727343739183,-0.43356596572246664
-South Africa,ZAF,Sub-Saharan Africa,Upper middle income,2022,-0.14553550261226753,0.024055208766603296
-South Sudan,SSD,Sub-Saharan Africa,Low income,2022,-0.13245326583240166,-0.4036708023582114
-Spain,ESP,Europe & Central Asia,High income,2022,-0.20837489667570677,1.5458782462963367
-Sri Lanka,LKA,South Asia,Lower middle income,2022,-0.1249994543277358,-0.37472491926154416
-St. Kitts and Nevis,KNA,Latin America & Caribbean,High income,2022,-0.13195665015937275,-0.4171794783475999
-St. Lucia,LCA,Latin America & Caribbean,Upper middle income,2022,-0.13200441983701744,-0.4155581992089661
-St. Martin (French part),MAF,Latin America & Caribbean,High income,2022,-0.1337429843185396,-0.36875286992781425
-St. Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle income,2022,-0.13190803629143313,-0.41865453025586347
-Sudan,SDN,Sub-Saharan Africa,Low income,2022,-0.13260137499112332,-0.41759966070906335
-Suriname,SUR,Latin America & Caribbean,Upper middle income,2022,-0.1318648369114505,-0.41215723363837137
-Sweden,SWE,Europe & Central Asia,High income,2022,-0.16779969093329355,0.6881429744656562
-Switzerland,CHE,Europe & Central Asia,High income,2022,-0.21443973377407216,1.704736141063312
-Syrian Arab Republic,SYR,Middle East & North Africa,Low income,2022,-0.12802047571053649,-0.3884881749189723
-Tajikistan,TJK,Europe & Central Asia,Lower middle income,2022,-0.13282555892786826,-0.4267459410043082
-Tanzania,TZA,Sub-Saharan Africa,Lower middle income,2022,-0.04591209290782634,-0.39251496696461063
-Thailand,THA,East Asia & Pacific,Upper middle income,2022,-0.14876966423578739,0.6675218349731177
-Timor-Leste,TLS,East Asia & Pacific,Lower middle income,2022,-0.13278224786233142,-0.42739615779869117
-Togo,TGO,Sub-Saharan Africa,Low income,2022,-0.12903447802909684,-0.3896929909234238
-Tonga,TON,East Asia & Pacific,Upper middle income,2022,-0.13267633938649176,-0.43954987712419985
-Trinidad and Tobago,TTO,Latin America & Caribbean,High income,2022,-0.13341106139618006,-0.3778707173645423
-Tunisia,TUN,Middle East & North Africa,Lower middle income,2022,-0.13546209385742153,-0.36297182508291614
-Turkiye,TUR,Europe & Central Asia,Upper middle income,2022,-0.17546374897289926,0.7763978459421291
-Turkmenistan,TKM,Europe & Central Asia,Upper middle income,2022,-0.13344253772476544,-0.37856086699120506
-Turks and Caicos Islands,TCA,Latin America & Caribbean,High income,2022,-0.13382527284021856,-0.3690303485502945
-Tuvalu,TUV,East Asia & Pacific,Upper middle income,2022,-0.13192224256863153,-0.4188526185075365
-Uganda,UGA,Sub-Saharan Africa,Low income,2022,-0.04637626506259194,-0.4138347448931253
-Ukraine,UKR,Europe & Central Asia,Upper middle income,2022,-0.137464855778581,-0.1965952011404117
-United Arab Emirates,ARE,Middle East & North Africa,High income,2022,-0.1432673763038271,0.0044712779889084595
-United Kingdom,GBR,Europe & Central Asia,High income,2022,-0.29126335643031553,3.687748127513631
-United States,USA,North America,High income,2022,-0.355299475697795,5.543225885241039
-Uruguay,URY,Latin America & Caribbean,High income,2022,-0.13411124060732377,-0.3497738339419146
-Uzbekistan,UZB,Europe & Central Asia,Lower middle income,2022,0.11707014200475241,-0.3474848348000703
-Vanuatu,VUT,East Asia & Pacific,Lower middle income,2022,-0.1325205147873144,-0.43883294626424363
-"Venezuela, RB",VEN,Latin America & Caribbean,Not classified,2022,-0.13457178281696935,-0.3770249049828308
-Viet Nam,VNM,East Asia & Pacific,Lower middle income,2022,8.258528929260617,0.5008763879863424
-Virgin Islands (U.S.),VIR,Latin America & Caribbean,High income,2022,-0.13483218772377023,-0.37932000154964524
-West Bank and Gaza,PSE,Middle East & North Africa,Lower middle income,2022,-0.13388365333775815,-0.40661142416964113
-"Yemen, Rep.",YEM,Middle East & North Africa,Low income,2022,-0.13357765502319474,-0.37129737097395293
-Zambia,ZMB,Sub-Saharan Africa,Lower middle income,2022,-0.13263982635291813,-0.3991360668104053
-Zimbabwe,ZWE,Sub-Saharan Africa,Lower middle income,2022,-0.13302923037493616,-0.4109199664124321
-Puerto Rico,PRI,Latin America & Caribbean,High income,2022,-0.1337429843185396,-0.36875286992781425
-Somalia,SOM,Sub-Saharan Africa,Low income,2022,-0.1337429843185396,-0.36875286992781425
+Afghanistan,AFG,South Asia,Low income,2022,0.07005340282769522,0.15946352231572933
+Albania,ALB,Europe & Central Asia,Upper middle income,2022,0.535169289220906,0.2865939078055391
+Algeria,DZA,Middle East & North Africa,Upper middle income,2022,-0.39420500526109087,0.08543146554176036
+American Samoa,ASM,East Asia & Pacific,High income,2022,0.7407653498030989,3.0502930751633053
+Andorra,AND,Europe & Central Asia,High income,2022,0.7289317013158786,-1.6835504687888738
+Angola,AGO,Sub-Saharan Africa,Lower middle income,2022,-0.10084040734424074,0.5081152622856409
+Antigua and Barbuda,ATG,Latin America & Caribbean,High income,2022,1.0004516790858378,-2.0580220192858047
+Argentina,ARG,Latin America & Caribbean,Upper middle income,2022,-0.7775590076279199,0.05315724952843259
+Armenia,ARM,Europe & Central Asia,Upper middle income,2022,0.4232942709881661,0.22355797737181454
+Aruba,ABW,Latin America & Caribbean,High income,2022,0.7548773278589099,-1.575449850357156
+Australia,AUS,East Asia & Pacific,High income,2022,-1.57588373387223,-0.0719358143596348
+Austria,AUT,Europe & Central Asia,High income,2022,-1.397922465008462,-0.2164593535196307
+Azerbaijan,AZE,Europe & Central Asia,Upper middle income,2022,-0.046077581851386495,0.16041172948345786
+"Bahamas, The",BHS,Latin America & Caribbean,High income,2022,0.709348145300519,0.17698464721047277
+Bahrain,BHR,Middle East & North Africa,High income,2022,-0.2855326648901382,-0.18197415167889286
+Bangladesh,BGD,South Asia,Lower middle income,2022,-0.6433244601245397,0.24861111966473717
+Barbados,BRB,Latin America & Caribbean,High income,2022,0.039206162014167725,0.023961814509091826
+Belarus,BLR,Europe & Central Asia,Upper middle income,2022,-0.3210969873991323,0.0797177441178005
+Belgium,BEL,Europe & Central Asia,High income,2022,-1.7522410248093436,-0.2797791134774123
+Belize,BLZ,Latin America & Caribbean,Upper middle income,2022,1.3634257839536073,0.051143459302185425
+Benin,BEN,Sub-Saharan Africa,Lower middle income,2022,0.7831014035797143,0.18442639207587372
+Bermuda,BMU,North America,High income,2022,1.0966778801657167,-0.29893836712180305
+Bhutan,BTN,South Asia,Lower middle income,2022,1.4637274694937017,0.44279990390033924
+Bolivia,BOL,Latin America & Caribbean,Lower middle income,2022,0.26264662984421794,0.060127730899028134
+Bosnia and Herzegovina,BIH,Europe & Central Asia,Upper middle income,2022,0.2716948891716001,0.2513265376076868
+Botswana,BWA,Sub-Saharan Africa,Upper middle income,2022,0.48891566265684705,0.17422480826299247
+Brazil,BRA,Latin America & Caribbean,Upper middle income,2022,-1.5194002250028489,-0.03571559086779241
+British Virgin Islands,VGB,Latin America & Caribbean,High income,2022,0.034645702895894956,0.034367331642233954
+Brunei Darussalam,BRN,East Asia & Pacific,High income,2022,0.3803224166808532,-0.020866008490557718
+Bulgaria,BGR,Europe & Central Asia,High income,2022,-0.5204485819586082,0.07699999215400931
+Burkina Faso,BFA,Sub-Saharan Africa,Low income,2022,0.6342396069034387,0.2253539354058162
+Burundi,BDI,Sub-Saharan Africa,Low income,2022,0.9703345434373618,-2.132376438939807
+Cabo Verde,CPV,Sub-Saharan Africa,Lower middle income,2022,1.5046326167343425,0.14845106204530323
+Cambodia,KHM,East Asia & Pacific,Lower middle income,2022,-0.1442444779086205,0.22401783117935584
+Cameroon,CMR,Sub-Saharan Africa,Lower middle income,2022,0.44675913999902234,0.14862456234557883
+Canada,CAN,North America,High income,2022,-1.8795612217787232,-0.1764588183507601
+Cayman Islands,CYM,Latin America & Caribbean,High income,2022,0.40703244519789133,-0.8793982993014448
+Central African Republic,CAF,Sub-Saharan Africa,Low income,2022,0.8435058667253643,3.452805445362057
+Chad,TCD,Sub-Saharan Africa,Low income,2022,0.3315011710152168,1.2818640404465347
+Channel Islands,CHI,Europe & Central Asia,High income,2022,0.0349133411879289,0.029689056699541774
+Chile,CHL,Latin America & Caribbean,High income,2022,-0.8594330533613769,0.19822240301862656
+China,CHN,East Asia & Pacific,Upper middle income,2022,-1.508555121542391,3.291470293369403
+Colombia,COL,Latin America & Caribbean,Upper middle income,2022,-0.7044542070113153,0.24849380797620785
+Comoros,COM,Sub-Saharan Africa,Lower middle income,2022,2.117857799976087,0.4837880395099865
+"Congo, Dem. Rep.",COD,Sub-Saharan Africa,Low income,2022,-0.11617103586111652,0.23233249959536192
+"Congo, Rep.",COG,Sub-Saharan Africa,Lower middle income,2022,0.2705297049818065,1.0193207599653529
+Costa Rica,CRI,Latin America & Caribbean,Upper middle income,2022,-0.15152663851666517,-0.05981532794941354
+Cote d'Ivoire,CIV,Sub-Saharan Africa,Lower middle income,2022,0.04878990105085693,0.01937546681236315
+Croatia,HRV,Europe & Central Asia,High income,2022,-0.3801720797356096,-0.023186090380005332
+Cuba,CUB,Latin America & Caribbean,Upper middle income,2022,0.17288067757035983,0.6364692780281548
+Curacao,CUW,Latin America & Caribbean,High income,2022,0.6920595941921198,-1.5726255297494425
+Cyprus,CYP,Europe & Central Asia,High income,2022,-0.3408055556224287,0.12108528090956659
+Czechia,CZE,Europe & Central Asia,High income,2022,-1.2223026929648988,-0.15412757467583016
+Denmark,DNK,Europe & Central Asia,High income,2022,-1.2995021868916072,-0.18845570822236177
+Djibouti,DJI,Middle East & North Africa,Lower middle income,2022,0.723179396773672,-0.1877964265294426
+Dominica,DMA,Latin America & Caribbean,Upper middle income,2022,1.3915703254461917,-3.210742511571807
+Dominican Republic,DOM,Latin America & Caribbean,Upper middle income,2022,-0.20690262724122715,0.21002922300255136
+Ecuador,ECU,Latin America & Caribbean,Upper middle income,2022,-0.2265988992488908,0.08933701149447708
+"Egypt, Arab Rep.",EGY,Middle East & North Africa,Lower middle income,2022,-0.8092366133644215,-0.1301249979685765
+El Salvador,SLV,Latin America & Caribbean,Upper middle income,2022,0.21299763422388243,0.40054473300627247
+Equatorial Guinea,GNQ,Sub-Saharan Africa,Upper middle income,2022,0.28802952953936256,1.0975278830757242
+Eritrea,ERI,Sub-Saharan Africa,Low income,2022,0.034645702895894956,0.034367331642233954
+Estonia,EST,Europe & Central Asia,High income,2022,-0.20372988834220332,0.03571709691146831
+Eswatini,SWZ,Sub-Saharan Africa,Lower middle income,2022,1.1370937894671505,0.06875803261212463
+Ethiopia,ETH,Sub-Saharan Africa,Low income,2022,0.16320622444068827,0.6447614739020457
+Faroe Islands,FRO,Europe & Central Asia,High income,2022,0.06891003817173973,0.1479615732872008
+Fiji,FJI,East Asia & Pacific,Upper middle income,2022,0.6414794210983863,-1.3942661984459153
+Finland,FIN,Europe & Central Asia,High income,2022,-0.9657275413973946,-0.036292264734076915
+France,FRA,Europe & Central Asia,High income,2022,-2.1228113635915746,-0.33650450981480445
+French Polynesia,PYF,East Asia & Pacific,High income,2022,0.06916162723038866,0.1639529779765477
+Gabon,GAB,Sub-Saharan Africa,Upper middle income,2022,0.1408684108895681,0.46375797268389846
+"Gambia, The",GMB,Sub-Saharan Africa,Low income,2022,1.919429589410282,0.8487272405257571
+Georgia,GEO,Europe & Central Asia,Upper middle income,2022,0.236382030756413,0.2888694746665415
+Germany,DEU,Europe & Central Asia,High income,2022,-2.2972992058217665,-0.11628537262292518
+Ghana,GHA,Sub-Saharan Africa,Lower middle income,2022,-0.1085386152267088,0.02615121029780252
+Gibraltar,GIB,Europe & Central Asia,High income,2022,0.034645702895894956,0.034367331642233954
+Greece,GRC,Europe & Central Asia,High income,2022,-0.8692971322331845,0.0993329846772918
+Greenland,GRL,Europe & Central Asia,High income,2022,0.5453768893578,2.1833704344338276
+Grenada,GRD,Latin America & Caribbean,Upper middle income,2022,1.097842087295724,-2.5127911428172256
+Guam,GUM,East Asia & Pacific,High income,2022,0.6039483283301269,2.4752963420979803
+Guatemala,GTM,Latin America & Caribbean,Upper middle income,2022,-0.08868470477195967,0.45111595815614414
+Guinea,GIN,Sub-Saharan Africa,Lower middle income,2022,0.5906370473337132,-0.370066289750753
+Guinea-Bissau,GNB,Sub-Saharan Africa,Low income,2022,1.9340214308855537,0.29309975036237607
+Guyana,GUY,Latin America & Caribbean,High income,2022,0.35989506009387257,-0.7538680786870902
+Haiti,HTI,Latin America & Caribbean,Lower middle income,2022,0.9667176555863842,0.7008586639660079
+Honduras,HND,Latin America & Caribbean,Lower middle income,2022,0.17315618584708062,0.2363122877394854
+"Hong Kong SAR, China",HKG,East Asia & Pacific,High income,2022,-1.8997735002035785,-0.2730444465022851
+Hungary,HUN,Europe & Central Asia,High income,2022,-1.0926905042671866,-0.13743587783270628
+Iceland,ISL,Europe & Central Asia,High income,2022,0.27497460466348256,0.07276474888422414
+India,IND,South Asia,Lower middle income,2022,-1.9651457911495964,-0.2532437384880797
+Indonesia,IDN,East Asia & Pacific,Upper middle income,2022,-1.375590450842423,-0.22391699427620831
+"Iran, Islamic Rep.",IRN,Middle East & North Africa,Upper middle income,2022,-0.28635228725466677,-1.3067221289267568
+Iraq,IRQ,Middle East & North Africa,Upper middle income,2022,-0.6018285701867306,-0.038993137854970945
+Ireland,IRL,Europe & Central Asia,High income,2022,-1.9122267259282217,-0.49434807333225633
+Isle of Man,IMN,Europe & Central Asia,High income,2022,0.03896547250073599,0.040066760736025255
+Israel,ISR,Middle East & North Africa,High income,2022,-1.0479059875943013,-0.14757716152219416
+Italy,ITA,Europe & Central Asia,High income,2022,-1.921563505331819,-0.3226080131491082
+Jamaica,JAM,Latin America & Caribbean,Upper middle income,2022,0.3028609642922718,-0.5999599893466885
+Japan,JPN,East Asia & Pacific,High income,2022,-2.104877303364643,-0.373367510503442
+Jordan,JOR,Middle East & North Africa,Lower middle income,2022,-0.0642261672056834,0.2561386599917277
+Kazakhstan,KAZ,Europe & Central Asia,Upper middle income,2022,-0.6432138837683645,0.005705401737120725
+Kenya,KEN,Sub-Saharan Africa,Lower middle income,2022,-0.03588460937944783,0.23031189440792235
+Kiribati,KIR,East Asia & Pacific,Lower middle income,2022,2.4500636061620096,0.6870911826102483
+"Korea, Dem. People's Rep.",PRK,East Asia & Pacific,Low income,2022,0.034645702895894956,0.034367331642233954
+"Korea, Rep.",KOR,East Asia & Pacific,High income,2022,-1.9605439225355243,-0.4584910192441952
+Kosovo,XKX,Europe & Central Asia,Upper middle income,2022,0.7350453036804404,0.32288596760814353
+Kuwait,KWT,Middle East & North Africa,High income,2022,-0.5590112691503112,-0.1974230342367619
+Kyrgyz Republic,KGZ,Europe & Central Asia,Lower middle income,2022,0.5685671123545648,0.5225786367113481
+Lao PDR,LAO,East Asia & Pacific,Lower middle income,2022,0.3403040217787987,-0.6465003059503629
+Latvia,LVA,Europe & Central Asia,High income,2022,-0.15249655665382478,0.07306748828488713
+Lebanon,LBN,Middle East & North Africa,Lower middle income,2022,0.18690217747100552,0.8507536851620793
+Lesotho,LSO,Sub-Saharan Africa,Lower middle income,2022,1.3077125918302974,0.4506944052779124
+Liberia,LBR,Sub-Saharan Africa,Low income,2022,0.8330962274334559,-1.8371490443836154
+Libya,LBY,Middle East & North Africa,Upper middle income,2022,-0.0809113022466468,0.1712826908294902
+Liechtenstein,LIE,Europe & Central Asia,High income,2022,0.03813017332425577,0.03964734685723614
+Lithuania,LTU,Europe & Central Asia,High income,2022,-0.5345847129991925,-0.04243598537034644
+Luxembourg,LUX,Europe & Central Asia,High income,2022,-1.3012031395676915,0.2930522782742459
+"Macao SAR, China",MAC,East Asia & Pacific,High income,2022,-0.021803400878658955,-0.08999913165600694
+Madagascar,MDG,Sub-Saharan Africa,Low income,2022,0.6852386748829187,0.018738952999682704
+Malawi,MWI,Sub-Saharan Africa,Low income,2022,0.6558923934067705,-1.1939357253819085
+Malaysia,MYS,East Asia & Pacific,Upper middle income,2022,-1.4058369554170507,-0.34036224435486906
+Maldives,MDV,South Asia,Upper middle income,2022,0.7316463960850378,-0.09493920477084246
+Mali,MLI,Sub-Saharan Africa,Low income,2022,0.6123745079554307,0.352116083630093
+Malta,MLT,Middle East & North Africa,High income,2022,-0.16823181256488265,0.14140687524704837
+Marshall Islands,MHL,East Asia & Pacific,Upper middle income,2022,0.9537075321326067,3.8907342802860403
+Mauritania,MRT,Sub-Saharan Africa,Lower middle income,2022,0.8324736574690368,0.4855153777225429
+Mauritius,MUS,Sub-Saharan Africa,Upper middle income,2022,0.27636363718512424,0.3019045260097069
+Mexico,MEX,Latin America & Caribbean,Upper middle income,2022,-1.8159306453441468,-0.24919845485617226
+"Micronesia, Fed. Sts.",FSM,East Asia & Pacific,Lower middle income,2022,0.12434285786945375,0.3243282084399806
+Moldova,MDA,Europe & Central Asia,Upper middle income,2022,0.5275729688127686,0.4638812046442767
+Monaco,MCO,Europe & Central Asia,High income,2022,0.0357074148114449,0.03051224558243877
+Mongolia,MNG,East Asia & Pacific,Upper middle income,2022,0.3437567950981465,0.21116867818269264
+Montenegro,MNE,Europe & Central Asia,Upper middle income,2022,0.9038561632475003,0.32937462707727583
+Morocco,MAR,Middle East & North Africa,Lower middle income,2022,-0.5609440973529906,0.10799426871797263
+Mozambique,MOZ,Sub-Saharan Africa,Low income,2022,0.2876241704788691,0.40263592254758523
+Myanmar,MMR,East Asia & Pacific,Lower middle income,2022,0.036606184354699,0.04484069466046021
+Namibia,NAM,Sub-Saharan Africa,Upper middle income,2022,0.6182041702232971,0.22957325239305915
+Nauru,NRU,East Asia & Pacific,High income,2022,1.5666900722697314,-3.2779880300769184
+Nepal,NPL,South Asia,Lower middle income,2022,0.504271970989197,0.9555011424531479
+Netherlands,NLD,Europe & Central Asia,High income,2022,-2.0925002801299004,-0.27598736915259164
+New Caledonia,NCL,East Asia & Pacific,High income,2022,0.06627283835802975,0.15390109688134015
+New Zealand,NZL,East Asia & Pacific,High income,2022,-0.5952088635648439,0.12537692894059232
+Nicaragua,NIC,Latin America & Caribbean,Lower middle income,2022,0.4447603847476132,0.18428576065362928
+Niger,NER,Sub-Saharan Africa,Low income,2022,0.999868672845229,0.4590787498713122
+Nigeria,NGA,Sub-Saharan Africa,Lower middle income,2022,-0.408056908209476,1.1017633650430199
+North Macedonia,MKD,Europe & Central Asia,Upper middle income,2022,0.34211528121467266,0.1954578298185424
+Northern Mariana Islands,MNP,East Asia & Pacific,High income,2022,0.7786781154243638,3.2128464809305193
+Norway,NOR,Europe & Central Asia,High income,2022,-1.1611131363930445,-0.19706081497462605
+Oman,OMN,Middle East & North Africa,High income,2022,-0.4439381245199365,-0.038497992041067366
+Pakistan,PAK,South Asia,Lower middle income,2022,-0.581781897759398,0.09250539911785301
+Palau,PLW,East Asia & Pacific,High income,2022,2.4985598160511557,0.5538953510655076
+Panama,PAN,Latin America & Caribbean,High income,2022,-0.2650197324013359,-0.1860194835986688
+Papua New Guinea,PNG,East Asia & Pacific,Lower middle income,2022,0.2855548461747772,-0.5821664819589176
+Paraguay,PRY,Latin America & Caribbean,Upper middle income,2022,0.15839985252343722,0.0797781911761142
+Peru,PER,Latin America & Caribbean,Upper middle income,2022,-0.6132147407288132,0.14033678981743544
+Philippines,PHL,East Asia & Pacific,Lower middle income,2022,-0.9998487662156484,-0.16780673422669348
+Poland,POL,Europe & Central Asia,High income,2022,-1.5855875166446418,-0.24556050718078737
+Portugal,PRT,Europe & Central Asia,High income,2022,-0.9481660714169884,-0.08366367113321914
+Qatar,QAT,Middle East & North Africa,High income,2022,-0.48129322826923326,1.0352669622937967
+Romania,ROU,Europe & Central Asia,High income,2022,-0.9964584042067683,-0.07334044101246355
+Russian Federation,RUS,Europe & Central Asia,High income,2022,-1.5747164147789698,-0.31531021175337876
+Rwanda,RWA,Sub-Saharan Africa,Low income,2022,0.8542188749135227,0.25465968429899294
+Samoa,WSM,East Asia & Pacific,Lower middle income,2022,2.115838235851196,0.689299577578022
+San Marino,SMR,Europe & Central Asia,High income,2022,0.9623931959013908,-0.13427816097556702
+Sao Tome and Principe,STP,Sub-Saharan Africa,Lower middle income,2022,1.4826718959216836,-3.409644561040618
+Saudi Arabia,SAU,Middle East & North Africa,High income,2022,-1.3675181614059893,-0.26888781402630163
+Senegal,SEN,Sub-Saharan Africa,Lower middle income,2022,0.3432195050045356,0.43817607971663514
+Serbia,SRB,Europe & Central Asia,Upper middle income,2022,-0.35344250860800375,0.08907214632000045
+Seychelles,SYC,Sub-Saharan Africa,High income,2022,1.1944611046648461,0.07764082917393235
+Sierra Leone,SLE,Sub-Saharan Africa,Low income,2022,1.2920106987575293,0.21180894994540822
+Singapore,SGP,East Asia & Pacific,High income,2022,-1.9849437974997262,-0.35852559456525646
+Sint Maarten (Dutch part),SXM,Latin America & Caribbean,High income,2022,0.9284987292772164,-2.1698340014056656
+Slovak Republic,SVK,Europe & Central Asia,High income,2022,-0.8847889084190171,-0.10530861704574113
+Slovenia,SVN,Europe & Central Asia,High income,2022,-0.47890974693911004,-0.09386615947160777
+Solomon Islands,SLB,East Asia & Pacific,Lower middle income,2022,1.7694630308348642,0.15106063962988328
+South Africa,ZAF,Sub-Saharan Africa,Upper middle income,2022,-0.9345929879897662,-0.03148151147888723
+South Sudan,SSD,Sub-Saharan Africa,Low income,2022,0.4188910324391663,-0.9193331052392395
+Spain,ESP,Europe & Central Asia,High income,2022,-1.7546582699000093,-0.29076781830126774
+Sri Lanka,LKA,South Asia,Lower middle income,2022,0.06509161501758148,-0.015997969834198246
+St. Kitts and Nevis,KNA,Latin America & Caribbean,High income,2022,1.1836378274959283,-2.740167003379006
+St. Lucia,LCA,Latin America & Caribbean,Upper middle income,2022,0.9383750211957402,-2.17123912257137
+St. Martin (French part),MAF,Latin America & Caribbean,High income,2022,0.034645702895894956,0.034367331642233954
+St. Vincent and the Grenadines,VCT,Latin America & Caribbean,Upper middle income,2022,1.250462727089817,-2.8671869658567606
+Sudan,SDN,Sub-Saharan Africa,Low income,2022,0.48359950423225395,0.5628635625850604
+Suriname,SUR,Latin America & Caribbean,Upper middle income,2022,0.7378637808434604,-1.641647147023604
+Sweden,SWE,Europe & Central Asia,High income,2022,-1.4508805144986805,-0.2889904739129393
+Switzerland,CHE,Europe & Central Asia,High income,2022,-1.8090370584626598,-0.314083509163596
+Syrian Arab Republic,SYR,Middle East & North Africa,Low income,2022,0.22892055598285696,0.850787084673683
+Tajikistan,TJK,Europe & Central Asia,Lower middle income,2022,0.9194871073624921,0.6565623506645888
+Tanzania,TZA,Sub-Saharan Africa,Lower middle income,2022,0.22467300947763608,0.27618716227546086
+Thailand,THA,East Asia & Pacific,Upper middle income,2022,-1.4393961237678077,-0.18767471102165026
+Timor-Leste,TLS,East Asia & Pacific,Lower middle income,2022,1.4205046600059152,0.3421918074555417
+Togo,TGO,Sub-Saharan Africa,Low income,2022,0.4463376794041691,1.7662507483152834
+Tonga,TON,East Asia & Pacific,Upper middle income,2022,2.3923038256093765,0.8160487720268749
+Trinidad and Tobago,TTO,Latin America & Caribbean,High income,2022,0.17255299864133153,-0.3196482628523621
+Tunisia,TUN,Middle East & North Africa,Lower middle income,2022,-0.004772137650293017,-0.059401167456335786
+Turkiye,TUR,Europe & Central Asia,Upper middle income,2022,-1.5009049698147614,-0.21403961442224628
+Turkmenistan,TKM,Europe & Central Asia,Upper middle income,2022,0.04957517035048919,0.08899673720599621
+Turks and Caicos Islands,TCA,Latin America & Caribbean,High income,2022,0.04706083500730872,0.04576870059308594
+Tuvalu,TUV,East Asia & Pacific,Upper middle income,2022,1.5186159480610992,-3.558965279282416
+Uganda,UGA,Sub-Saharan Africa,Low income,2022,0.4746743936944052,0.39959873424130427
+Ukraine,UKR,Europe & Central Asia,Upper middle income,2022,-0.5165243084666039,0.5833977133921872
+United Arab Emirates,ARE,Middle East & North Africa,High income,2022,-0.6496851953315276,-2.853916726486493
+United Kingdom,GBR,Europe & Central Asia,High income,2022,-2.1833179525286424,-0.3327212338745222
+United States,USA,North America,High income,2022,-2.26961664434706,-0.059655827484952496
+Uruguay,URY,Latin America & Caribbean,High income,2022,0.007798104732169616,0.1793920856867157
+Uzbekistan,UZB,Europe & Central Asia,Lower middle income,2022,-0.16170532087112116,0.2633262501143805
+Vanuatu,VUT,East Asia & Pacific,Lower middle income,2022,2.034268634468416,0.6083647859852069
+"Venezuela, RB",VEN,Latin America & Caribbean,Not classified,2022,0.1488073127535037,0.5254233731528951
+Viet Nam,VNM,East Asia & Pacific,Lower middle income,2022,-1.5059304920696508,-0.29101932079793613
+Virgin Islands (U.S.),VIR,Latin America & Caribbean,High income,2022,0.37619994843296545,1.4920975467243383
+West Bank and Gaza,PSE,Middle East & North Africa,Lower middle income,2022,0.5391074520309203,0.7329432901734104
+"Yemen, Rep.",YEM,Middle East & North Africa,Low income,2022,0.037456723336553394,0.04064555080575023
+Zambia,ZMB,Sub-Saharan Africa,Lower middle income,2022,0.2668232717478108,-0.4763053079931467
+Zimbabwe,ZWE,Sub-Saharan Africa,Lower middle income,2022,0.583298756555757,0.5894219599208309
+Puerto Rico,PRI,Latin America & Caribbean,High income,2022,0.034645702895894956,0.034367331642233954
+Somalia,SOM,Sub-Saharan Africa,Low income,2022,0.034645702895894956,0.034367331642233954
