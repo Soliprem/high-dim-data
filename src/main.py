@@ -2,10 +2,13 @@ import pandas as pd
 from sklearn.metrics import silhouette_score
 
 from analysis import assign_kmeans_clusters, fit_factor_model
-from config import CONFIG, EXPERIMENT_CONFIGS
+from config import CLUSTERING_CONFIGS, CONFIG, EXPERIMENT_CONFIGS
 from data_prep import validate_dataset, prepare_feature_matrix
 from datatypes import Config
-from diagnostics import run_parallel_analysis_diagnostics
+from diagnostics import (
+    run_parallel_analysis_diagnostics,
+    run_parallel_analysis_sweep,
+)
 from experiments import run_config_sweep
 from helpers import save_all_cluster_outputs, save_all_factor_outputs
 
@@ -51,6 +54,12 @@ def main(config: Config = CONFIG) -> None:
         cluster_labels,
         config,
     )
+    parallel_analysis_sweep = run_parallel_analysis_sweep(
+        df,
+        factor_values,
+        CLUSTERING_CONFIGS,
+        config.out_dir / "diagnostics" / "parallel_analysis",
+    )
 
     config_sweep = run_config_sweep(df, EXPERIMENT_CONFIGS)
     config_sweep.to_csv(config.out_dir / "config_sweep.csv", index=False)
@@ -73,6 +82,10 @@ def main(config: Config = CONFIG) -> None:
         "suggested_factors",
     ].iloc[0]
     print(f"Global PA suggested factors: {global_pa_factors}")
+    print(
+        "PA clustering specifications: "
+        f"{parallel_analysis_sweep['specification_id'].max()}"
+    )
     print(f"Config experiments: {len(config_sweep)}")
     print(f"Outputs written to {config.out_dir}")
 

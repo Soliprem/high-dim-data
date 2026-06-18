@@ -81,6 +81,18 @@ CLUSTERING_FEATURE_SETS = (
     ),
 )
 
+CLUSTERING_CONFIGS = tuple(
+    replace(
+        CONFIG,
+        clustering_features=clustering_features,
+        n_clusters=n_clusters,
+    )
+    for clustering_features, n_clusters in product(
+        CLUSTERING_FEATURE_SETS,
+        range(2, 7),
+    )
+)
+
 EXPERIMENT_CONFIGS = tuple(
     replace(
         CONFIG,

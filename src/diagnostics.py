@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 from pathlib import Path
+from collections.abc import Sequence
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.metrics import silhouette_score
 
-from data_prep import standardize_features
+from analysis import assign_kmeans_clusters
+from data_prep import prepare_feature_matrix, standardize_features
 from datatypes import Config
 
 
@@ -60,7 +63,13 @@ def parallel_analysis(
         percentile,
         axis=0,
     )
-    suggested_factors = int(np.sum(observed > thresholds))
+    max_estimable_factors = min(n_features, n_rows - 1)
+    retain = np.zeros(n_features, dtype=bool)
+    retain[:max_estimable_factors] = (
+        observed[:max_estimable_factors]
+        > thresholds[:max_estimable_factors]
+    )
+    suggested_factors = int(retain.sum())
     return observed, thresholds, suggested_factors
 
 
@@ -140,7 +149,10 @@ def run_parallel_analysis_diagnostics(
                 "eigenvalue_rank": np.arange(1, len(observed) + 1),
                 "observed_eigenvalue": observed,
                 "permutation_threshold": thresholds,
-                "retain": observed > thresholds,
+                "retain": (
+                    (np.arange(len(observed)) < min(x_scaled.shape[1], x_scaled.shape[0] - 1))
+                    & (observed > thresholds)
+                ),
             }
         ).to_csv(output_dir / f"{scope}_eigenvalues.csv", index=False)
         save_parallel_analysis_plot(
@@ -160,4 +172,142 @@ def run_parallel_analysis_diagnostics(
         dropped_rows,
         columns=pd.Index(["scope", "feature"]),
     ).to_csv(output_dir / "dropped_constant_features.csv", index=False)
+    return summary
+
+
+def run_parallel_analysis_sweep(
+    df: pd.DataFrame,
+    factor_values: pd.DataFrame,
+    configs: Sequence[Config],
+    output_dir: Path,
+) -> pd.DataFrame:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    summary_rows: list[dict[str, object]] = []
+    eigenvalue_rows: list[dict[str, object]] = []
+    dropped_rows: list[dict[str, object]] = []
+
+    global_values, global_dropped = remove_constant_features(factor_values)
+    global_scaled = standardize_features(global_values)
+    global_observed, global_thresholds, global_suggested = parallel_analysis(
+        global_scaled,
+        iterations=configs[0].parallel_analysis_iterations,
+        percentile=configs[0].parallel_analysis_percentile,
+        seed=configs[0].seed,
+    )
+    summary_rows.append(
+        {
+            "specification_id": 0,
+            "clustering_features": "global",
+            "n_clustering_features": 0,
+            "n_clusters": 0,
+            "scope": "global",
+            "cluster": "all",
+            "n_observations": global_scaled.shape[0],
+            "n_input_variables": factor_values.shape[1],
+            "n_variables": global_values.shape[1],
+            "n_dropped_constant": len(global_dropped),
+            "silhouette_score": np.nan,
+            "suggested_factors": global_suggested,
+        }
+    )
+    for rank, (observed, threshold) in enumerate(
+        zip(global_observed, global_thresholds, strict=True),
+        start=1,
+    ):
+        eigenvalue_rows.append(
+            {
+                "specification_id": 0,
+                "scope": "global",
+                "cluster": "all",
+                "eigenvalue_rank": rank,
+                "observed_eigenvalue": observed,
+                "permutation_threshold": threshold,
+                "retain": (
+                    rank
+                    <= min(global_scaled.shape[1], global_scaled.shape[0] - 1)
+                    and observed > threshold
+                ),
+            }
+        )
+
+    for specification_id, config in enumerate(configs, start=1):
+        _, x_cluster = prepare_feature_matrix(
+            df,
+            config.clustering_features,
+        )
+        labels = assign_kmeans_clusters(x_cluster, config)
+        silhouette = float(silhouette_score(x_cluster, labels))
+        feature_label = " | ".join(config.clustering_features)
+
+        for cluster in sorted(np.unique(labels)):
+            scope = f"cluster_{int(cluster)}"
+            values = factor_values.loc[labels == cluster]
+            diagnostic_values, dropped_features = remove_constant_features(
+                values
+            )
+            x_scaled = standardize_features(diagnostic_values)
+            observed, thresholds, suggested_factors = parallel_analysis(
+                x_scaled,
+                iterations=config.parallel_analysis_iterations,
+                percentile=config.parallel_analysis_percentile,
+                seed=config.seed + specification_id * 100 + int(cluster),
+            )
+
+            summary_rows.append(
+                {
+                    "specification_id": specification_id,
+                    "clustering_features": feature_label,
+                    "n_clustering_features": len(config.clustering_features),
+                    "n_clusters": config.n_clusters,
+                    "scope": scope,
+                    "cluster": int(cluster),
+                    "n_observations": x_scaled.shape[0],
+                    "n_input_variables": values.shape[1],
+                    "n_variables": diagnostic_values.shape[1],
+                    "n_dropped_constant": len(dropped_features),
+                    "silhouette_score": silhouette,
+                    "suggested_factors": suggested_factors,
+                }
+            )
+            dropped_rows.extend(
+                {
+                    "specification_id": specification_id,
+                    "scope": scope,
+                    "cluster": int(cluster),
+                    "feature": feature,
+                }
+                for feature in dropped_features
+            )
+            for rank, (observed_value, threshold) in enumerate(
+                zip(observed, thresholds, strict=True),
+                start=1,
+            ):
+                eigenvalue_rows.append(
+                    {
+                        "specification_id": specification_id,
+                        "scope": scope,
+                        "cluster": int(cluster),
+                        "eigenvalue_rank": rank,
+                        "observed_eigenvalue": observed_value,
+                        "permutation_threshold": threshold,
+                        "retain": (
+                            rank
+                            <= min(x_scaled.shape[1], x_scaled.shape[0] - 1)
+                            and observed_value > threshold
+                        ),
+                    }
+                )
+
+    summary = pd.DataFrame(summary_rows)
+    summary.to_csv(output_dir / "sweep_summary.csv", index=False)
+    pd.DataFrame(eigenvalue_rows).to_csv(
+        output_dir / "sweep_eigenvalues.csv",
+        index=False,
+    )
+    pd.DataFrame(
+        dropped_rows,
+        columns=pd.Index(
+            ["specification_id", "scope", "cluster", "feature"]
+        ),
+    ).to_csv(output_dir / "sweep_dropped_constant_features.csv", index=False)
     return summary
